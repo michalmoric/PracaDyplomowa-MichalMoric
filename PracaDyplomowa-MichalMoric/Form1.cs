@@ -16,5 +16,11 @@ namespace PracaDyplomowa_MichalMoric
         {
             InitializeComponent();
         }
+
+        private void Cezar_Button_Click(object sender, EventArgs e)
+        {
+            CezarForm form = new CezarForm();
+            form.ShowDialog();
+        }
     }
 }
