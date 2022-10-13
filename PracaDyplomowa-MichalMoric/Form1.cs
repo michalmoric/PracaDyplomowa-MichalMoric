@@ -22,5 +22,11 @@ namespace PracaDyplomowa_MichalMoric
             CezarForm form = new CezarForm();
             form.ShowDialog();
         }
+
+        private void Polibius_Button_Click(object sender, EventArgs e)
+        {
+            PolibiusForm form = new PolibiusForm();
+            form.ShowDialog();
+        }
     }
 }
