@@ -12,6 +12,12 @@ namespace PracaDyplomowa_MichalMoric
 {
     public partial class PolibiusForm : Form
     {
+        List<List<string>> charMatrix = new List<List<string>>();
+        bool encryptMode = false;
+        int messageLength = 0;
+        private bool encryptOrDecrypt = false;
+        int encryptionIterator = 0;
+
 
         public PolibiusForm()
         {
@@ -26,8 +32,103 @@ namespace PracaDyplomowa_MichalMoric
             Key_Grid.Rows.Add("L", "M", "N", "O", "P");
             Key_Grid.Rows.Add("Q", "R", "S", "T", "U");
             Key_Grid.Rows.Add("V", "W", "X", "Y", "Z");
+            MessageOutputLabel.Text = "...";
+            MessageOutputLabel.ReadOnly = true;
+            MessageOutputLabel.BorderStyle = 0;
+            MessageOutputLabel.BackColor = this.BackColor;
+            MessageOutputLabel.TabStop = false;
         }
+        private string OneLetterEncript(List<List<string>> charMatrix, string letter,bool encryptMode) 
+        {
+            string returnText = "";
+            int rowNum = 1;
+            int cellNum = 1;
+            foreach(List<string> row in charMatrix)
+            {
+                foreach(string cell in row)
+                {
+                    if(letter == cell)
+                    {
+                        if(encryptMode == false)
+                        {
+                            returnText = rowNum.ToString() + cellNum.ToString();
 
+                        }
+                        else
+                        {
+                            returnText = cellNum.ToString() + rowNum.ToString();
+                        }
+                    }
+                    cellNum++;
+                }
+                rowNum++;
+                cellNum = 1;
+            }
+            return returnText;
+        }
+        private string OneLetterDecript(List<List<string>> charMatrix, string letter, bool encryptMode)
+        {
+            if(letter.Length == 2)
+            {
+               if(letter.All(Char.IsDigit)== true)
+                {
+                    if (encryptMode == false)
+                    {
+                        if ((Int32.Parse(letter[0].ToString()) > charMatrix.Count() || (Int32.Parse(letter[1].ToString()) > charMatrix[0].Count())))
+                        {
+                            return "";
+                        }
+                        else
+                        {
+                            int row = Int32.Parse(letter[0].ToString()) - 1;
+                            int cell = Int32.Parse(letter[1].ToString()) - 1;
+                            return charMatrix[row][cell];
+                        }
+                    }
+                    else
+                    {
+                        if ((Int32.Parse(letter[1].ToString()) > charMatrix.Count() || (Int32.Parse(letter[0].ToString()) > charMatrix[0].Count())))
+                        {
+                            return "";
+                        }
+                        else
+                        {
+                            int row = Int32.Parse(letter[1].ToString()) - 1;
+                            int cell = Int32.Parse(letter[0].ToString()) - 1;
+                            return charMatrix[row][cell];
+                        }
+                    }
+                }
+                else
+                {
+                    return "";
+                }
+            }
+            else
+            {
+                return "";
+            }
+        }
+        private string PolibiusEncrypt(List<List<string>> charMatrix, string Message, bool encryptMode)
+        {
+            string result = "";
+            foreach(char letter in Message)
+            {
+                result += OneLetterEncript(charMatrix, letter.ToString(), encryptMode);
+            }
+            return result;
+        }
+        private string PolibiusDecrypt(List<List<string>> charMatrix, string Message, bool encryptMode)
+        {
+            string result = "";
+            for(int i = 0; i<Message.Length; i= i + 2)
+            {
+                string letterOne = Message[i].ToString();
+                string letterTwo = Message[i + 1].ToString();
+                result += OneLetterDecript(charMatrix, letterOne + letterTwo, encryptMode);
+            }
+            return result;
+        }
         private void AddCol_Btn_Click(object sender, EventArgs e)
         {
             Key_Grid.Columns.Add((Key_Grid.ColumnCount + 1).ToString(), (Key_Grid.ColumnCount + 1).ToString());
@@ -93,13 +194,205 @@ namespace PracaDyplomowa_MichalMoric
             {
                 if (allCells.Distinct().Count()== allCells.Count())
                 {
-                    MessageBox.Show("All good");
+                    Val_Btn.Enabled = false;
+                    RelKey_Btn.Enabled = true;
+                    Key_Grid.Enabled = false;
+                    StepByStepEncryptBtn.Enabled = true;
+                    EncryptBtn.Enabled = true;
+                    StepByStepDecryptBtn.Enabled = true;
+                    DecryptBtn.Enabled = true;
+                    NextStepBtn.Enabled = false;
+                    AddCol_Btn.Enabled = false;
+                    AddRow_Btn.Enabled = false;
+                    DelCol_Btn.Enabled = false;
+                    DelRow_Btn.Enabled = false;
+                    foreach (DataGridViewRow row in Key_Grid.Rows)
+                    {
+                        List<string> charRow = new List<string>();
+                        foreach (DataGridViewCell cell in row.Cells)
+                        {
+                            charRow.Add(cell.Value.ToString());
+                        }
+                        charMatrix.Add(charRow);
+                    }
                 }
                 else
                 {
                     MessageBox.Show("Wszystke elementy klucza muszą być unikalne");
                 }
             }
+        }
+
+        private void RelKey_Btn_Click(object sender, EventArgs e)
+        {
+
+            Val_Btn.Enabled = true;
+            RelKey_Btn.Enabled = false;
+            Key_Grid.Enabled = true;
+            StepByStepEncryptBtn.Enabled = false;
+            EncryptBtn.Enabled = false;
+            StepByStepDecryptBtn.Enabled = false;
+            DecryptBtn.Enabled = false;
+            NextStepBtn.Enabled = false;
+            AddCol_Btn.Enabled = true;
+            AddRow_Btn.Enabled = true;
+            DelCol_Btn.Enabled = true;
+            DelRow_Btn.Enabled = true;
+            charMatrix.Clear();
+        }
+
+        private void StepByStepEncryptBtn_Click(object sender, EventArgs e)
+        {
+            if (InputMessageBox.Text.Length > 0)
+            {
+                InstructionLabel.Text = "Szyfr polibiusza znajdować będzie znaki z wiadomości i \n dopasowywać je do znaków w matrycy(kluczu) \n i zamieni je na parę liczb odpowiadających wierszowi i kolumnie";
+                StepByStepEncryptBtn.Enabled = false;
+                EncryptBtn.Enabled = false;
+                StepByStepDecryptBtn.Enabled = false;
+                DecryptBtn.Enabled = false;
+                NextStepBtn.Enabled = true;
+                messageLength = InputMessageBox.Text.Length;
+                encryptOrDecrypt = false;
+                encryptionIterator = 0;
+                MessageOutputLabel.Text = "";
+            }
+            else
+            {
+                MessageBox.Show("Proszę wprowadzić wiadomość");
+            }
+        }
+        private void StepByStepDecryptBtn_Click(object sender, EventArgs e)
+        {
+            if (InputMessageBox.Text.Length > 0)
+            {
+                if((InputMessageBox.Text.Length % 2) == 0 )
+                {
+                    InstructionLabel.Text = "Szyfr polibiusza przy deszyfrowaniu wezmie pary \nindeksów z wiadomosci i zastąpi je odpowiednimi literami z klucza";
+                    StepByStepEncryptBtn.Enabled = false;
+                    EncryptBtn.Enabled = false;
+                    StepByStepDecryptBtn.Enabled = false;
+                    DecryptBtn.Enabled = false;
+                    NextStepBtn.Enabled = true;
+                    messageLength = InputMessageBox.Text.Length;
+                    encryptOrDecrypt = true;
+                    encryptionIterator = 0;
+                    MessageOutputLabel.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show("Liczba znaków w wiadomosci musi być parzysta");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Proszę wprowadzić wiadomość");
+            }
+        }
+        private void NextStepBtn_Click(object sender, EventArgs e)
+        {
+            if (encryptionIterator < messageLength)
+            {
+                if (encryptOrDecrypt == false)
+                {
+                    string result = OneLetterEncript(charMatrix, InputMessageBox.Text[encryptionIterator].ToString(), encryptMode);
+                    if (result == "")
+                    {
+                        InstructionLabel.Text = "Znaku " + InputMessageBox.Text[encryptionIterator].ToString() + " w kluczu nie ma więc zostanie pominęty i nie \nbędzie widoczny po odszyfrowaniu wiadomosci";
+                    }
+                    else
+                    {
+                        if (encryptMode == false)
+                        {
+                            InstructionLabel.Text = "Znak " + InputMessageBox.Text[encryptionIterator].ToString() + " jest w kluczu w wierszu " + result[0] + " i w kolumnie " + result[1] + " więc \nzakodowany będzie jako: " + result[0] + result[1];
+                        }
+                        else
+                        {
+                            InstructionLabel.Text = "Znak " + InputMessageBox.Text[encryptionIterator].ToString() + " jest w kluczu w kolumnie " + result[0] + " i w wierszu " + result[1] + " więc \nzakodowany będzie jako: " + result[0] + result[1];
+                        }
+                        String addLetter = (result[0]).ToString();
+                        addLetter += result[1].ToString();
+                        MessageOutputLabel.Text += addLetter;
+
+                    }
+                    encryptionIterator++;
+                }
+                else
+                {
+                    string letter = InputMessageBox.Text[encryptionIterator].ToString() + InputMessageBox.Text[encryptionIterator + 1].ToString();
+                    string result = OneLetterDecript(charMatrix, letter, encryptMode);
+                    if (result == "")
+                    {
+                        InstructionLabel.Text = "W kluczu podano litere lub indeksy \nbyły za duże więc ten znak zostanie pomninęty";
+                    }
+                    else
+                    {
+                        if (encryptMode == false)
+                        {
+                            InstructionLabel.Text = "Wiersz " + InputMessageBox.Text[encryptionIterator].ToString() + " i Kolumna " +InputMessageBox.Text[encryptionIterator+1].ToString()+ " odpowiadają znakowi: "+ result;
+                        }
+                        else
+                        {
+                            InstructionLabel.Text = "Kolumna " + InputMessageBox.Text[encryptionIterator].ToString() + " i Wiersz " + InputMessageBox.Text[encryptionIterator + 1].ToString() + " odpowiadają znakowi: " + result;
+                        }
+                        
+                        MessageOutputLabel.Text += result;
+
+                    }
+                    encryptionIterator= encryptionIterator +2;
+                }
+            }
+            else
+            {
+                InstructionLabel.Text = "Zaszyfrowana wiadomość wygląda w następujący sposób:";
+                StepByStepEncryptBtn.Enabled = true;
+                EncryptBtn.Enabled = true;
+                StepByStepDecryptBtn.Enabled = true;
+                DecryptBtn.Enabled = true;
+                NextStepBtn.Enabled = false;
+            }
+           
+        }
+        private void EncryptBtn_Click(object sender, EventArgs e)
+        {
+            if (InputMessageBox.Text.Length > 0)
+            {
+                InstructionLabel.Text = "Zaszyfrowana wiadomość wygląda tak:";
+                MessageOutputLabel.Text = PolibiusEncrypt(charMatrix, InputMessageBox.Text, encryptMode);
+            }
+            else
+            {
+                MessageBox.Show("Proszę wprowadzić wiadomość");
+            }
+        }
+        private void DecryptBtn_Click(object sender, EventArgs e)
+        {
+            if (InputMessageBox.Text.Length > 0)
+            {
+                if ((InputMessageBox.Text.Length % 2) == 0)
+                {
+                    InstructionLabel.Text = "Odszyfrowana wiadomość wygląda tak:";
+                    MessageOutputLabel.Text = PolibiusDecrypt(charMatrix, InputMessageBox.Text, encryptMode);
+                }
+                else
+                {
+                    MessageBox.Show("Liczba znaków w wiadomosci musi być parzysta");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Proszę wprowadzić wiadomość");
+            }
+            
+        }
+
+        private void RowColRad_CheckedChanged(object sender, EventArgs e)
+        {
+            encryptMode = false;
+        }
+
+        private void ColRowRad_CheckedChanged(object sender, EventArgs e)
+        {
+            encryptMode = true;
         }
     }
 }

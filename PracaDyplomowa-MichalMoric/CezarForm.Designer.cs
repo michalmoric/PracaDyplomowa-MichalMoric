@@ -34,17 +34,17 @@ namespace PracaDyplomowa_MichalMoric
             this.OffsetBox = new System.Windows.Forms.ComboBox();
             this.Pre = new System.Windows.Forms.Label();
             this.ProccesGroup = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.InstructionLabel = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.StepByStepEncryptBtn = new System.Windows.Forms.Button();
-            this.EncryptBtn = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.StepByStepDecryptBtn = new System.Windows.Forms.Button();
-            this.DecryptBtn = new System.Windows.Forms.Button();
-            this.NextStepBtn = new System.Windows.Forms.Button();
             this.MessageOutputLabel = new System.Windows.Forms.TextBox();
+            this.InstructionLabel = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.EncryptBtn = new System.Windows.Forms.Button();
+            this.StepByStepEncryptBtn = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.DecryptBtn = new System.Windows.Forms.Button();
+            this.StepByStepDecryptBtn = new System.Windows.Forms.Button();
+            this.NextStepBtn = new System.Windows.Forms.Button();
             this.ProccesGroup.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -123,14 +123,21 @@ namespace PracaDyplomowa_MichalMoric
             this.ProccesGroup.TabStop = false;
             this.ProccesGroup.Text = "Postęp";
             // 
-            // label2
+            // MessageOutputLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(63, 120);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Wiadomość:";
+            this.MessageOutputLabel.Location = new System.Drawing.Point(152, 117);
+            this.MessageOutputLabel.Name = "MessageOutputLabel";
+            this.MessageOutputLabel.Size = new System.Drawing.Size(100, 20);
+            this.MessageOutputLabel.TabIndex = 4;
+            // 
+            // InstructionLabel
+            // 
+            this.InstructionLabel.AutoSize = true;
+            this.InstructionLabel.Location = new System.Drawing.Point(149, 37);
+            this.InstructionLabel.Name = "InstructionLabel";
+            this.InstructionLabel.Size = new System.Drawing.Size(16, 13);
+            this.InstructionLabel.TabIndex = 3;
+            this.InstructionLabel.Text = "...";
             // 
             // label3
             // 
@@ -141,14 +148,14 @@ namespace PracaDyplomowa_MichalMoric
             this.label3.TabIndex = 2;
             this.label3.Text = "Instrukcja:";
             // 
-            // InstructionLabel
+            // label2
             // 
-            this.InstructionLabel.AutoSize = true;
-            this.InstructionLabel.Location = new System.Drawing.Point(149, 37);
-            this.InstructionLabel.Name = "InstructionLabel";
-            this.InstructionLabel.Size = new System.Drawing.Size(16, 13);
-            this.InstructionLabel.TabIndex = 3;
-            this.InstructionLabel.Text = "...";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(63, 120);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(66, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Wiadomość:";
             // 
             // groupBox1
             // 
@@ -161,16 +168,6 @@ namespace PracaDyplomowa_MichalMoric
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Szyfrowanie";
             // 
-            // StepByStepEncryptBtn
-            // 
-            this.StepByStepEncryptBtn.Location = new System.Drawing.Point(17, 39);
-            this.StepByStepEncryptBtn.Name = "StepByStepEncryptBtn";
-            this.StepByStepEncryptBtn.Size = new System.Drawing.Size(94, 23);
-            this.StepByStepEncryptBtn.TabIndex = 0;
-            this.StepByStepEncryptBtn.Text = "Krok po Kroku";
-            this.StepByStepEncryptBtn.UseVisualStyleBackColor = true;
-            this.StepByStepEncryptBtn.Click += new System.EventHandler(this.StepByStepEncryptBtn_Click);
-            // 
             // EncryptBtn
             // 
             this.EncryptBtn.Location = new System.Drawing.Point(138, 39);
@@ -180,6 +177,16 @@ namespace PracaDyplomowa_MichalMoric
             this.EncryptBtn.Text = "Na Raz";
             this.EncryptBtn.UseVisualStyleBackColor = true;
             this.EncryptBtn.Click += new System.EventHandler(this.EncryptBtn_Click);
+            // 
+            // StepByStepEncryptBtn
+            // 
+            this.StepByStepEncryptBtn.Location = new System.Drawing.Point(17, 39);
+            this.StepByStepEncryptBtn.Name = "StepByStepEncryptBtn";
+            this.StepByStepEncryptBtn.Size = new System.Drawing.Size(94, 23);
+            this.StepByStepEncryptBtn.TabIndex = 0;
+            this.StepByStepEncryptBtn.Text = "Krok po Kroku";
+            this.StepByStepEncryptBtn.UseVisualStyleBackColor = true;
+            this.StepByStepEncryptBtn.Click += new System.EventHandler(this.StepByStepEncryptBtn_Click);
             // 
             // groupBox2
             // 
@@ -192,16 +199,6 @@ namespace PracaDyplomowa_MichalMoric
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Deszyfrowanie";
             // 
-            // StepByStepDecryptBtn
-            // 
-            this.StepByStepDecryptBtn.Location = new System.Drawing.Point(20, 39);
-            this.StepByStepDecryptBtn.Name = "StepByStepDecryptBtn";
-            this.StepByStepDecryptBtn.Size = new System.Drawing.Size(92, 23);
-            this.StepByStepDecryptBtn.TabIndex = 0;
-            this.StepByStepDecryptBtn.Text = "Krok po Kroku";
-            this.StepByStepDecryptBtn.UseVisualStyleBackColor = true;
-            this.StepByStepDecryptBtn.Click += new System.EventHandler(this.StepByStepDecryptBtn_Click);
-            // 
             // DecryptBtn
             // 
             this.DecryptBtn.Location = new System.Drawing.Point(155, 39);
@@ -211,6 +208,16 @@ namespace PracaDyplomowa_MichalMoric
             this.DecryptBtn.Text = "Na Raz";
             this.DecryptBtn.UseVisualStyleBackColor = true;
             this.DecryptBtn.Click += new System.EventHandler(this.DecryptBtn_Click);
+            // 
+            // StepByStepDecryptBtn
+            // 
+            this.StepByStepDecryptBtn.Location = new System.Drawing.Point(20, 39);
+            this.StepByStepDecryptBtn.Name = "StepByStepDecryptBtn";
+            this.StepByStepDecryptBtn.Size = new System.Drawing.Size(92, 23);
+            this.StepByStepDecryptBtn.TabIndex = 0;
+            this.StepByStepDecryptBtn.Text = "Krok po Kroku";
+            this.StepByStepDecryptBtn.UseVisualStyleBackColor = true;
+            this.StepByStepDecryptBtn.Click += new System.EventHandler(this.StepByStepDecryptBtn_Click);
             // 
             // NextStepBtn
             // 
@@ -222,13 +229,6 @@ namespace PracaDyplomowa_MichalMoric
             this.NextStepBtn.Text = "Następny Krok";
             this.NextStepBtn.UseVisualStyleBackColor = true;
             this.NextStepBtn.Click += new System.EventHandler(this.NextStepBtn_Click);
-            // 
-            // MessageOutputLabel
-            // 
-            this.MessageOutputLabel.Location = new System.Drawing.Point(152, 117);
-            this.MessageOutputLabel.Name = "MessageOutputLabel";
-            this.MessageOutputLabel.Size = new System.Drawing.Size(100, 20);
-            this.MessageOutputLabel.TabIndex = 4;
             // 
             // CezarForm
             // 
