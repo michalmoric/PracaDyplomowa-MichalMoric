@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static PracaDyplomowa_MichalMoric.PolibiusCypher;
 
 namespace PracaDyplomowa_MichalMoric
 {
@@ -17,7 +18,7 @@ namespace PracaDyplomowa_MichalMoric
         int messageLength = 0;
         private bool encryptOrDecrypt = false;
         int encryptionIterator = 0;
-
+        PolibiusCypher cypher = new PolibiusCypher();
 
         public PolibiusForm()
         {
@@ -38,97 +39,7 @@ namespace PracaDyplomowa_MichalMoric
             MessageOutputLabel.BackColor = this.BackColor;
             MessageOutputLabel.TabStop = false;
         }
-        private string OneLetterEncript(List<List<string>> charMatrix, string letter,bool encryptMode) 
-        {
-            string returnText = "";
-            int rowNum = 1;
-            int cellNum = 1;
-            foreach(List<string> row in charMatrix)
-            {
-                foreach(string cell in row)
-                {
-                    if(letter == cell)
-                    {
-                        if(encryptMode == false)
-                        {
-                            returnText = rowNum.ToString() + cellNum.ToString();
-
-                        }
-                        else
-                        {
-                            returnText = cellNum.ToString() + rowNum.ToString();
-                        }
-                    }
-                    cellNum++;
-                }
-                rowNum++;
-                cellNum = 1;
-            }
-            return returnText;
-        }
-        private string OneLetterDecript(List<List<string>> charMatrix, string letter, bool encryptMode)
-        {
-            if(letter.Length == 2)
-            {
-               if(letter.All(Char.IsDigit)== true)
-                {
-                    if (encryptMode == false)
-                    {
-                        if ((Int32.Parse(letter[0].ToString()) > charMatrix.Count() || (Int32.Parse(letter[1].ToString()) > charMatrix[0].Count())))
-                        {
-                            return "";
-                        }
-                        else
-                        {
-                            int row = Int32.Parse(letter[0].ToString()) - 1;
-                            int cell = Int32.Parse(letter[1].ToString()) - 1;
-                            return charMatrix[row][cell];
-                        }
-                    }
-                    else
-                    {
-                        if ((Int32.Parse(letter[1].ToString()) > charMatrix.Count() || (Int32.Parse(letter[0].ToString()) > charMatrix[0].Count())))
-                        {
-                            return "";
-                        }
-                        else
-                        {
-                            int row = Int32.Parse(letter[1].ToString()) - 1;
-                            int cell = Int32.Parse(letter[0].ToString()) - 1;
-                            return charMatrix[row][cell];
-                        }
-                    }
-                }
-                else
-                {
-                    return "";
-                }
-            }
-            else
-            {
-                return "";
-            }
-        }
-        private string PolibiusEncrypt(List<List<string>> charMatrix, string Message, bool encryptMode)
-        {
-            string result = "";
-            foreach(char letter in Message)
-            {
-                result += OneLetterEncript(charMatrix, letter.ToString(), encryptMode);
-            }
-            return result;
-        }
-        private string PolibiusDecrypt(List<List<string>> charMatrix, string Message, bool encryptMode)
-        {
-            string result = "";
-            for(int i = 0; i<Message.Length; i= i + 2)
-            {
-                string letterOne = Message[i].ToString();
-                string letterTwo = Message[i + 1].ToString();
-                result += OneLetterDecript(charMatrix, letterOne + letterTwo, encryptMode);
-            }
-            return result;
-        }
+       
         private void AddCol_Btn_Click(object sender, EventArgs e)
         {
             Key_Grid.Columns.Add((Key_Grid.ColumnCount + 1).ToString(), (Key_Grid.ColumnCount + 1).ToString());
@@ -294,7 +205,7 @@ namespace PracaDyplomowa_MichalMoric
             {
                 if (encryptOrDecrypt == false)
                 {
-                    string result = OneLetterEncript(charMatrix, InputMessageBox.Text[encryptionIterator].ToString(), encryptMode);
+                    string result = cypher.OneLetterEncript(charMatrix, InputMessageBox.Text[encryptionIterator].ToString(), encryptMode);
                     if (result == "")
                     {
                         InstructionLabel.Text = "Znaku " + InputMessageBox.Text[encryptionIterator].ToString() + " w kluczu nie ma więc zostanie pominęty i nie \nbędzie widoczny po odszyfrowaniu wiadomosci";
@@ -319,7 +230,7 @@ namespace PracaDyplomowa_MichalMoric
                 else
                 {
                     string letter = InputMessageBox.Text[encryptionIterator].ToString() + InputMessageBox.Text[encryptionIterator + 1].ToString();
-                    string result = OneLetterDecript(charMatrix, letter, encryptMode);
+                    string result = cypher.OneLetterDecript(charMatrix, letter, encryptMode);
                     if (result == "")
                     {
                         InstructionLabel.Text = "W kluczu podano litere lub indeksy \nbyły za duże więc ten znak zostanie pomninęty";
@@ -357,7 +268,7 @@ namespace PracaDyplomowa_MichalMoric
             if (InputMessageBox.Text.Length > 0)
             {
                 InstructionLabel.Text = "Zaszyfrowana wiadomość wygląda tak:";
-                MessageOutputLabel.Text = PolibiusEncrypt(charMatrix, InputMessageBox.Text, encryptMode);
+                MessageOutputLabel.Text = cypher.PolibiusEncrypt(charMatrix, InputMessageBox.Text, encryptMode);
             }
             else
             {
@@ -371,7 +282,7 @@ namespace PracaDyplomowa_MichalMoric
                 if ((InputMessageBox.Text.Length % 2) == 0)
                 {
                     InstructionLabel.Text = "Odszyfrowana wiadomość wygląda tak:";
-                    MessageOutputLabel.Text = PolibiusDecrypt(charMatrix, InputMessageBox.Text, encryptMode);
+                    MessageOutputLabel.Text = cypher.PolibiusDecrypt(charMatrix, InputMessageBox.Text, encryptMode);
                 }
                 else
                 {

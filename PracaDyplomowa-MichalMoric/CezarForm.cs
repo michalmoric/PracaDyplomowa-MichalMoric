@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static PracaDyplomowa_MichalMoric.CezarCypher;
 
 namespace PracaDyplomowa_MichalMoric
 {
@@ -23,72 +24,7 @@ namespace PracaDyplomowa_MichalMoric
         }
         private bool encryptOrDecrypt = false;
         private int offsetToGo = 0;
-        private string ShiftTextRight(string Message)
-        {
-            string outputMessage = "";
-            for(int i = 0; i < Message.Length; i++)
-            {
-                if (Message[i] == 'z')
-                {
-                    outputMessage += 'A';
-
-                }
-                else if (Message[i]=='Z')
-                {
-                    outputMessage += 'a';
-                }
-                else
-                {
-                    int value = (int)Message[i];
-                    value++;
-                    outputMessage += (char)value;
-                }
-                
-            }
-            return outputMessage;
-        }
-        private string ShiftTextLeft(string Message)
-        {
-            string outputMessage = "";
-            for (int i = 0; i < Message.Length; i++)
-            {
-                if (Message[i] == 'A')
-                {
-                    outputMessage += 'z';
-
-                }
-                else if (Message[i] == 'a')
-                {
-                    outputMessage += 'Z';
-                }
-                else
-                {
-                    int value = (int)Message[i];
-                    value--;
-                    outputMessage += (char)value;
-                }
-
-            }
-            return outputMessage;
-        }
-        private string CezarEncrypt(string Message, int offset)
-        {
-            for(int i =0; i < offset; i++)
-            {
-                Message = ShiftTextRight(Message);
-
-            }
-            return Message;
-        }
-        private string CezarDecrypt(string Message, int offset)
-        {
-            for (int i = 0; i < offset; i++)
-            {
-                Message = ShiftTextLeft(Message);
-
-            }
-            return Message;
-        }
+        CezarCypher cypher = new CezarCypher();
         private bool CheckForErrors()
         {
             if (InputMessageBox.Text.All(Char.IsLetter) == false || OffsetBox.Text.All(Char.IsNumber)== false)
@@ -161,7 +97,7 @@ namespace PracaDyplomowa_MichalMoric
                     InstructionLabel.Text = "Jeszcze "+ offsetToGo +" miejsc";
 
                 }
-                MessageOutputLabel.Text = ShiftTextRight(MessageOutputLabel.Text);
+                MessageOutputLabel.Text = cypher.ShiftTextRight(MessageOutputLabel.Text);
                 offsetToGo--;
 
             }
@@ -181,7 +117,7 @@ namespace PracaDyplomowa_MichalMoric
                     InstructionLabel.Text = "Jeszcze " + offsetToGo + " miejsc";
 
                 }
-                MessageOutputLabel.Text = ShiftTextLeft(MessageOutputLabel.Text);
+                MessageOutputLabel.Text = cypher.ShiftTextLeft(MessageOutputLabel.Text);
                 offsetToGo--;
 
             }
@@ -196,7 +132,7 @@ namespace PracaDyplomowa_MichalMoric
             else
             {
                 InstructionLabel.Text = " Wiadomość końcowa wygląda tak:";
-                MessageOutputLabel.Text = CezarEncrypt(InputMessageBox.Text, Int32.Parse(OffsetBox.Text));
+                MessageOutputLabel.Text = cypher.CezarEncrypt(InputMessageBox.Text, Int32.Parse(OffsetBox.Text));
             }
         }
 
@@ -209,7 +145,7 @@ namespace PracaDyplomowa_MichalMoric
             else
             {
                 InstructionLabel.Text = " Wiadomość końcowa wygląda tak:";
-                MessageOutputLabel.Text = CezarDecrypt(InputMessageBox.Text, Int32.Parse(OffsetBox.Text));
+                MessageOutputLabel.Text = cypher.CezarDecrypt(InputMessageBox.Text, Int32.Parse(OffsetBox.Text));
             }
         }
     }

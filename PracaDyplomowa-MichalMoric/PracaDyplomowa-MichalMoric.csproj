@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CezarCypher.cs" />
     <Compile Include="CezarForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,6 +59,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="PolibiusCypher.cs" />
     <Compile Include="PolibiusForm.cs">
       <SubType>Form</SubType>
     </Compile>
