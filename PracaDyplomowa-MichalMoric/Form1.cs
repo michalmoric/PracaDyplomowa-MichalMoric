@@ -28,5 +28,11 @@ namespace PracaDyplomowa_MichalMoric
             PolibiusForm form = new PolibiusForm();
             form.ShowDialog();
         }
+
+        private void Rsa_Button_Click(object sender, EventArgs e)
+        {
+            RsaForm form = new RsaForm();
+            form.ShowDialog();
+        }
     }
 }

@@ -34,6 +34,7 @@ namespace PracaDyplomowa_MichalMoric
             this.label3 = new System.Windows.Forms.Label();
             this.Cezar_Button = new System.Windows.Forms.Button();
             this.Polibius_Button = new System.Windows.Forms.Button();
+            this.Rsa_Button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -88,11 +89,23 @@ namespace PracaDyplomowa_MichalMoric
             this.Polibius_Button.UseVisualStyleBackColor = true;
             this.Polibius_Button.Click += new System.EventHandler(this.Polibius_Button_Click);
             // 
+            // Rsa_Button
+            // 
+            this.Rsa_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Rsa_Button.Location = new System.Drawing.Point(593, 321);
+            this.Rsa_Button.Name = "Rsa_Button";
+            this.Rsa_Button.Size = new System.Drawing.Size(98, 57);
+            this.Rsa_Button.TabIndex = 5;
+            this.Rsa_Button.Text = "Szyfr RSA";
+            this.Rsa_Button.UseVisualStyleBackColor = true;
+            this.Rsa_Button.Click += new System.EventHandler(this.Rsa_Button_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Rsa_Button);
             this.Controls.Add(this.Polibius_Button);
             this.Controls.Add(this.Cezar_Button);
             this.Controls.Add(this.label3);
@@ -112,6 +125,7 @@ namespace PracaDyplomowa_MichalMoric
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button Cezar_Button;
         private System.Windows.Forms.Button Polibius_Button;
+        private System.Windows.Forms.Button Rsa_Button;
     }
 }
 
