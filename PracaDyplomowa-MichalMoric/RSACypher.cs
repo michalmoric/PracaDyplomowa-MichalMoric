@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Numerics;
 
 namespace PracaDyplomowa_MichalMoric
 {
     public class RSACypher
     {
-        private bool IsPrime(int number)
+        public bool IsPrime(int number)
         {
             if (number <= 1) return false;
             if (number == 2) return true;
@@ -102,6 +103,55 @@ namespace PracaDyplomowa_MichalMoric
             output.Add(Convert.ToDouble(phi));
             output.Add(Convert.ToDouble(e));
             output.Add(d);
+            return output;
+        }
+        public BigInteger encryptNumber(int message, int E, int n)
+        {
+            BigInteger power = BigInteger.Pow(message, E);
+            BigInteger output = power % n;
+            return output;
+        }
+        public BigInteger decryptNumber(int message, int d, int n)
+        {
+            BigInteger power = BigInteger.Pow(message, d);
+            BigInteger output = power % n;
+            return output;
+        }
+        public BigInteger encryptAsciiCharacter(char message , int E, int n)
+        {
+            int tempMess = (int)message;
+            BigInteger power = BigInteger.Pow(message, E);
+            BigInteger output = power % n;
+            return output;
+        }
+        public char decryptAsciiCharacter(int message, int d , int n)
+        {
+            BigInteger power = BigInteger.Pow(message, d);
+            int output = (int)(power % n);
+            return Convert.ToChar(output);
+        }
+        public string encryptAscii(string message,int E , int n)
+        {
+            string output = "";
+            foreach(char i in message)
+            {
+                BigInteger translate = encryptAsciiCharacter(i, E, n);
+                output += translate.ToString();
+                output += "-";
+            }
+            output = output.Remove(output.Length - 1);
+            return output;
+        }
+        public string decryptAscii(string message, int d, int n)
+        {
+            string output = "";
+            string[] splitMessage = message.Split('-');
+            foreach(string i in splitMessage)
+            {
+                BigInteger translate = decryptAsciiCharacter(Convert.ToInt32(i), d, n);
+                int translateSmall = (int)translate;
+                output += Convert.ToChar(translateSmall);
+            }
             return output;
         }
     }
