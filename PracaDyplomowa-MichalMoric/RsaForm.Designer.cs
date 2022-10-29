@@ -47,11 +47,11 @@ namespace PracaDyplomowa_MichalMoric
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.RandomButton = new System.Windows.Forms.RadioButton();
             this.ChosenButton = new System.Windows.Forms.RadioButton();
+            this.RandomButton = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.NumberButton = new System.Windows.Forms.RadioButton();
             this.ASCIIButton = new System.Windows.Forms.RadioButton();
+            this.NumberButton = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -222,18 +222,6 @@ namespace PracaDyplomowa_MichalMoric
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Klucze";
             // 
-            // RandomButton
-            // 
-            this.RandomButton.AutoSize = true;
-            this.RandomButton.Location = new System.Drawing.Point(63, 89);
-            this.RandomButton.Name = "RandomButton";
-            this.RandomButton.Size = new System.Drawing.Size(140, 17);
-            this.RandomButton.TabIndex = 17;
-            this.RandomButton.TabStop = true;
-            this.RandomButton.Text = "Losowe Liczby Pierwsze";
-            this.RandomButton.UseVisualStyleBackColor = true;
-            this.RandomButton.CheckedChanged += new System.EventHandler(this.RandomButton_CheckedChanged);
-            // 
             // ChosenButton
             // 
             this.ChosenButton.AutoSize = true;
@@ -246,6 +234,18 @@ namespace PracaDyplomowa_MichalMoric
             this.ChosenButton.UseVisualStyleBackColor = true;
             this.ChosenButton.CheckedChanged += new System.EventHandler(this.ChosenButton_CheckedChanged);
             // 
+            // RandomButton
+            // 
+            this.RandomButton.AutoSize = true;
+            this.RandomButton.Location = new System.Drawing.Point(63, 89);
+            this.RandomButton.Name = "RandomButton";
+            this.RandomButton.Size = new System.Drawing.Size(140, 17);
+            this.RandomButton.TabIndex = 17;
+            this.RandomButton.TabStop = true;
+            this.RandomButton.Text = "Losowe Liczby Pierwsze";
+            this.RandomButton.UseVisualStyleBackColor = true;
+            this.RandomButton.CheckedChanged += new System.EventHandler(this.RandomButton_CheckedChanged);
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.ASCIIButton);
@@ -257,17 +257,6 @@ namespace PracaDyplomowa_MichalMoric
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tryb szyfrowania";
             // 
-            // NumberButton
-            // 
-            this.NumberButton.AutoSize = true;
-            this.NumberButton.Location = new System.Drawing.Point(32, 29);
-            this.NumberButton.Name = "NumberButton";
-            this.NumberButton.Size = new System.Drawing.Size(55, 17);
-            this.NumberButton.TabIndex = 0;
-            this.NumberButton.TabStop = true;
-            this.NumberButton.Text = "Liczby";
-            this.NumberButton.UseVisualStyleBackColor = true;
-            // 
             // ASCIIButton
             // 
             this.ASCIIButton.AutoSize = true;
@@ -278,6 +267,17 @@ namespace PracaDyplomowa_MichalMoric
             this.ASCIIButton.TabStop = true;
             this.ASCIIButton.Text = "ASCII";
             this.ASCIIButton.UseVisualStyleBackColor = true;
+            // 
+            // NumberButton
+            // 
+            this.NumberButton.AutoSize = true;
+            this.NumberButton.Location = new System.Drawing.Point(32, 29);
+            this.NumberButton.Name = "NumberButton";
+            this.NumberButton.Size = new System.Drawing.Size(55, 17);
+            this.NumberButton.TabIndex = 0;
+            this.NumberButton.TabStop = true;
+            this.NumberButton.Text = "Liczby";
+            this.NumberButton.UseVisualStyleBackColor = true;
             // 
             // RsaForm
             // 
@@ -292,6 +292,8 @@ namespace PracaDyplomowa_MichalMoric
             this.Controls.Add(this.OutputBox);
             this.Controls.Add(this.Label);
             this.Controls.Add(this.InputBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "RsaForm";
             this.Text = "RsaForm";
             this.groupBox1.ResumeLayout(false);

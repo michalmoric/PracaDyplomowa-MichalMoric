@@ -37,9 +37,12 @@ namespace PracaDyplomowa_MichalMoric
             this.Val_Btn = new System.Windows.Forms.Button();
             this.RelKey_Btn = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ColRowRad = new System.Windows.Forms.RadioButton();
+            this.RowColRad = new System.Windows.Forms.RadioButton();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.StepByStepEncryptBtn = new System.Windows.Forms.Button();
             this.EncryptBtn = new System.Windows.Forms.Button();
+            this.StepByStepEncryptBtn = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.DecryptBtn = new System.Windows.Forms.Button();
             this.StepByStepDecryptBtn = new System.Windows.Forms.Button();
@@ -51,9 +54,6 @@ namespace PracaDyplomowa_MichalMoric
             this.InstructionLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.RowColRad = new System.Windows.Forms.RadioButton();
-            this.ColRowRad = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.Key_Grid)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -152,6 +152,39 @@ namespace PracaDyplomowa_MichalMoric
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Klucz";
             // 
+            // ColRowRad
+            // 
+            this.ColRowRad.AutoSize = true;
+            this.ColRowRad.Location = new System.Drawing.Point(260, 381);
+            this.ColRowRad.Name = "ColRowRad";
+            this.ColRowRad.Size = new System.Drawing.Size(103, 17);
+            this.ColRowRad.TabIndex = 9;
+            this.ColRowRad.TabStop = true;
+            this.ColRowRad.Text = "Kolumna/Wiersz";
+            this.ColRowRad.UseVisualStyleBackColor = true;
+            this.ColRowRad.CheckedChanged += new System.EventHandler(this.ColRowRad_CheckedChanged);
+            // 
+            // RowColRad
+            // 
+            this.RowColRad.AutoSize = true;
+            this.RowColRad.Location = new System.Drawing.Point(260, 336);
+            this.RowColRad.Name = "RowColRad";
+            this.RowColRad.Size = new System.Drawing.Size(103, 17);
+            this.RowColRad.TabIndex = 8;
+            this.RowColRad.TabStop = true;
+            this.RowColRad.Text = "Wiersz/Kolumna";
+            this.RowColRad.UseVisualStyleBackColor = true;
+            this.RowColRad.CheckedChanged += new System.EventHandler(this.RowColRad_CheckedChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(257, 306);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(89, 13);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Tryb szyfrowania:";
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.EncryptBtn);
@@ -163,17 +196,6 @@ namespace PracaDyplomowa_MichalMoric
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Szyfrowanie";
             // 
-            // StepByStepEncryptBtn
-            // 
-            this.StepByStepEncryptBtn.Enabled = false;
-            this.StepByStepEncryptBtn.Location = new System.Drawing.Point(18, 35);
-            this.StepByStepEncryptBtn.Name = "StepByStepEncryptBtn";
-            this.StepByStepEncryptBtn.Size = new System.Drawing.Size(75, 40);
-            this.StepByStepEncryptBtn.TabIndex = 0;
-            this.StepByStepEncryptBtn.Text = "Krok Po Kroku";
-            this.StepByStepEncryptBtn.UseVisualStyleBackColor = true;
-            this.StepByStepEncryptBtn.Click += new System.EventHandler(this.StepByStepEncryptBtn_Click);
-            // 
             // EncryptBtn
             // 
             this.EncryptBtn.Enabled = false;
@@ -184,6 +206,17 @@ namespace PracaDyplomowa_MichalMoric
             this.EncryptBtn.Text = "Na Raz";
             this.EncryptBtn.UseVisualStyleBackColor = true;
             this.EncryptBtn.Click += new System.EventHandler(this.EncryptBtn_Click);
+            // 
+            // StepByStepEncryptBtn
+            // 
+            this.StepByStepEncryptBtn.Enabled = false;
+            this.StepByStepEncryptBtn.Location = new System.Drawing.Point(18, 35);
+            this.StepByStepEncryptBtn.Name = "StepByStepEncryptBtn";
+            this.StepByStepEncryptBtn.Size = new System.Drawing.Size(75, 40);
+            this.StepByStepEncryptBtn.TabIndex = 0;
+            this.StepByStepEncryptBtn.Text = "Krok Po Kroku";
+            this.StepByStepEncryptBtn.UseVisualStyleBackColor = true;
+            this.StepByStepEncryptBtn.Click += new System.EventHandler(this.StepByStepEncryptBtn_Click);
             // 
             // groupBox3
             // 
@@ -292,39 +325,6 @@ namespace PracaDyplomowa_MichalMoric
             this.label2.TabIndex = 0;
             this.label2.Text = "Wiadomość:";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(257, 306);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(89, 13);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Tryb szyfrowania:";
-            // 
-            // RowColRad
-            // 
-            this.RowColRad.AutoSize = true;
-            this.RowColRad.Location = new System.Drawing.Point(260, 336);
-            this.RowColRad.Name = "RowColRad";
-            this.RowColRad.Size = new System.Drawing.Size(103, 17);
-            this.RowColRad.TabIndex = 8;
-            this.RowColRad.TabStop = true;
-            this.RowColRad.Text = "Wiersz/Kolumna";
-            this.RowColRad.UseVisualStyleBackColor = true;
-            this.RowColRad.CheckedChanged += new System.EventHandler(this.RowColRad_CheckedChanged);
-            // 
-            // ColRowRad
-            // 
-            this.ColRowRad.AutoSize = true;
-            this.ColRowRad.Location = new System.Drawing.Point(260, 381);
-            this.ColRowRad.Name = "ColRowRad";
-            this.ColRowRad.Size = new System.Drawing.Size(103, 17);
-            this.ColRowRad.TabIndex = 9;
-            this.ColRowRad.TabStop = true;
-            this.ColRowRad.Text = "Kolumna/Wiersz";
-            this.ColRowRad.UseVisualStyleBackColor = true;
-            this.ColRowRad.CheckedChanged += new System.EventHandler(this.ColRowRad_CheckedChanged);
-            // 
             // PolibiusForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -337,6 +337,8 @@ namespace PracaDyplomowa_MichalMoric
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "PolibiusForm";
             this.Text = "PolibiusForm";
             ((System.ComponentModel.ISupportInitialize)(this.Key_Grid)).EndInit();

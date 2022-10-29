@@ -42,7 +42,14 @@ namespace PracaDyplomowa_MichalMoric
        
         private void AddCol_Btn_Click(object sender, EventArgs e)
         {
-            Key_Grid.Columns.Add((Key_Grid.ColumnCount + 1).ToString(), (Key_Grid.ColumnCount + 1).ToString());
+            if(Key_Grid.ColumnCount== 9)
+            {
+                MessageBox.Show("Program nie wspiera kluczy większych od 9 kolumn");
+            }
+            else
+            {
+                Key_Grid.Columns.Add((Key_Grid.ColumnCount + 1).ToString(), (Key_Grid.ColumnCount + 1).ToString());
+            }
         }
 
         private void DelCol_Btn_Click(object sender, EventArgs e)
@@ -59,7 +66,15 @@ namespace PracaDyplomowa_MichalMoric
 
         private void AddRow_Btn_Click(object sender, EventArgs e)
         {
-            Key_Grid.Rows.Add();
+            if (Key_Grid.RowCount == 9)
+            {
+                MessageBox.Show("Program nie wspiera kluczy większych od 9 wierszy");
+            }
+            else
+            {
+                Key_Grid.Rows.Add();
+            }
+            
         }
 
         private void DelRow_Btn_Click(object sender, EventArgs e)

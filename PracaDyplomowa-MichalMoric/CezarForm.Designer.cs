@@ -243,6 +243,8 @@ namespace PracaDyplomowa_MichalMoric
             this.Controls.Add(this.OffsetBox);
             this.Controls.Add(this.InputMessageBox);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "CezarForm";
             this.Text = "CezarForm";
             this.ProccesGroup.ResumeLayout(false);
