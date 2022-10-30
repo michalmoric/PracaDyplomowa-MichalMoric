@@ -181,6 +181,7 @@ namespace PracaDyplomowa_MichalMoric
                 encryptOrDecrypt = false;
                 encryptionIterator = 0;
                 MessageOutputLabel.Text = "";
+                InputMessageBox.Enabled = false;
             }
             else
             {
@@ -203,6 +204,7 @@ namespace PracaDyplomowa_MichalMoric
                     encryptOrDecrypt = true;
                     encryptionIterator = 0;
                     MessageOutputLabel.Text = "";
+                    InputMessageBox.Enabled = false;
                 }
                 else
                 {
@@ -275,6 +277,7 @@ namespace PracaDyplomowa_MichalMoric
                 StepByStepDecryptBtn.Enabled = true;
                 DecryptBtn.Enabled = true;
                 NextStepBtn.Enabled = false;
+                InputMessageBox.Enabled = true;
             }
            
         }

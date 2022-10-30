@@ -51,7 +51,7 @@ namespace PracaDyplomowa_MichalMoric
             if (v < 0) v = (v + n) % n;
             return v;
         }
-        public List<double> GenerateKeys(int p ,int q)
+        public List<int> GenerateKeys(int p ,int q)
         {
             Random rd = new Random();
             if(p == 0)
@@ -60,7 +60,7 @@ namespace PracaDyplomowa_MichalMoric
                 int randp = 0;
                 while(prim == false)
                 {
-                    randp= rd.Next(0, 200);
+                    randp= rd.Next(0, 500);
                     if(IsPrime(randp) == true)
                     {
                         p = randp;
@@ -74,7 +74,7 @@ namespace PracaDyplomowa_MichalMoric
                 int randq = 0;
                 while (prim == false)
                 {
-                    randq = rd.Next(0, 200);
+                    randq = rd.Next(0, 500);
                     if (IsPrime(randq) == true)
                     {
                         q = randq;
@@ -97,12 +97,15 @@ namespace PracaDyplomowa_MichalMoric
             int randE = rd.Next(0, potentialE.Count-1);
             e = potentialE[randE];
             
-            double d = modInverse(e,phi);
-            List<double> output = new List<double>();
-            output.Add(Convert.ToDouble(n));
-            output.Add(Convert.ToDouble(phi));
-            output.Add(Convert.ToDouble(e));
+            int d = modInverse(e,phi);
+            List<int> output = new List<int>();
+            output.Add(n);
+            output.Add(phi);
+            output.Add(e);
             output.Add(d);
+            output.Add(p);
+            output.Add(q);
+            output.Add(potentialE.Count);
             return output;
         }
         public BigInteger encryptNumber(int message, int E, int n)
