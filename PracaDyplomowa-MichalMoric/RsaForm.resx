@@ -117,4 +117,36 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label7.Text" xml:space="preserve">
+    <value>Szyfr RSA (Rivesta-Shamira-Adlemana) jest jednym z obecnie najpopularniejszym szyfrem asymetrycznym.
+
+Został zaprojektowany w 1977. Jego bezpieczeństwo polega na tym jak trudne jest rozkładanie na czyniki dużych liczb złorzonych.
+
+Algorytm ma 2 części: generowanie kluczy oraz szyfrowanie i deszyfrowanie. 
+
+Aby wygenerować klucze należy wcisnąć przycisk wygeneruj kluczę . W polach e,d oraz n pojawią się wygenerowane klucze.
+
+Można również wybrać czy dwie początkowe liczby pierwsze mają być wygenerowane losowo czy wybrane przez użytkownika.
+
+Na dole ekranu pojawią się również instrukcje wyjaśniające krok po kroku działania jakie podejmuje algorytm.
+
+Należy pamiętać że program przystosowany jest do stosunkowo małych liczb pierwszych (wersja losowa generuje liczby pierwsze z przedziału od 1 do 500).
+W rzeczywistych zastosowaniach algorytm operuje na znacznie wyższych liczbach lecz dla celów demonstracyjnych program ogranicza się do niskich wartości.
+
+Klucz publiczny(wartości e i n) można przekazać do osób chcących przesyłać generującemu klucze wiadomości.
+
+Klucz prywatny(wartości d i n) należy zachować dla siebie i go nie upubliczniać.
+
+Po wprowadzeniu lub wygenerowaniu klucza publicznego można szyfrować wiadomości a po wprowadzeniu lub wygenerowaniu klucza prywatnego można je 
+deszyfrować.
+
+Obie operacje można wykonywać w prostym trybie liczbowym gdzie zaszyfrowana zostaje pojedyńcza wartość całkowita albo w trybie ASCII.
+
+Tryb ASCII szyfruje każdy znak z osobna na i zapisuje je w formacie XXX-XXX-XXX.
+
+W zastosowaniach rzeczywistych takie roziwązanie nie jest zbyt bezpieczne lecz dla celów demonstracyjnych jest bardziej czytelne.
+
+Tryb ASCII można również wykonywać w szybki sposób "Na raz" lub krok po kroku żeby zobaczyć jak szyfrowany/deszyfrowanyj jest każdy znak z osobna.
+</value>
+  </data>
 </root>

@@ -117,4 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Szyfr cezara jest prostym szyfrem podstawieniowym w którym każda litera zamieniana jest na inną oddaloną w alfabecie o pewne przesunięcie w prawo.
+
+Na przykład przy przesunięciu 3  litera A zamieniana jest na D.
+
+Aby odkodować zakodowaną wiadomość wystarczy przesunąć każdą literę o te samo przesunięcie w lewo.
+
+W programie wiadomość wejsciową proszę wprowadzić w polę "Wiadomość" a przesunięcie proszę wprowadzić w polę "Przesunięcie"
+
+Program działa tylko dla alfabetu składającego się z małych i dużych liter alfabetu angielskiego oraz dla przesunięć będących 
+
+dodatnimi liczbami całkowitymi.
+
+Wiadomość można zaszyfrować lub odzyfrować, i obie te obcje można wykonać szybko w całości lub krok po kroku żeby 
+
+zobaczyć jak wiadomość się zmienia.
+
+W obcji krok po kroku szyfrowanie/deszyfrowanie inicjujemy odpowiednim przyciskiem "Krok po Kroku" a przyciskiem "Następny krok" 
+
+popychamy proces do przodu</value>
+  </data>
 </root>
