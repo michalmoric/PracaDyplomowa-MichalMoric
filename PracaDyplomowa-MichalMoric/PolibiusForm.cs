@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -322,6 +323,61 @@ namespace PracaDyplomowa_MichalMoric
         private void ColRowRad_CheckedChanged(object sender, EventArgs e)
         {
             encryptMode = true;
+        }
+
+        private void SaveKey_Btn_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog save = new SaveFileDialog();
+            save.Filter = "Text File | *.txt";
+            if(save.ShowDialog() == DialogResult.OK)
+            {
+                StreamWriter writer = new StreamWriter(save.OpenFile());
+                foreach (DataGridViewRow row in Key_Grid.Rows)
+                {
+
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        writer.Write(cell.Value + "|");
+                    }
+
+                    writer.Write("\n");
+
+                }
+                writer.Dispose();
+                writer.Close();
+            }
+        }
+
+        private void LoaKey_Btn_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog load = new OpenFileDialog();
+            load.Filter = "Text File|*.txt";
+            if (load.ShowDialog() == DialogResult.OK)
+            {
+                Key_Grid.Rows.Clear();
+                Key_Grid.Columns.Clear();
+                StreamReader reader = new StreamReader(load.OpenFile());
+                List<List<string>> matrix = new List<List<string>>();
+                while (reader.Peek()>= 0)
+                {
+                    
+                    string line = reader.ReadLine();
+                    line = line.Remove(line.Length - 1);
+                    string[] characters = line.Split('|');
+                    List<string> chars = new List<string>(characters);
+                    matrix.Add(chars);
+                    
+                }
+                for(int i = 0;i<matrix[0].Count;i++)
+                {
+                    Key_Grid.Columns.Add((i+1).ToString(),(i+1).ToString());
+                }
+                foreach (List<string> row in matrix)
+                {
+                    Key_Grid.Rows.Add(row.ToArray());
+                }
+            }
+
         }
     }
 }
