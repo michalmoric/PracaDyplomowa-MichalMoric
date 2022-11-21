@@ -38,6 +38,8 @@ namespace PracaDyplomowa_MichalMoric
             this.Val_Btn = new System.Windows.Forms.Button();
             this.RelKey_Btn = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.LoaKey_Btn = new System.Windows.Forms.Button();
+            this.SaveKey_Btn = new System.Windows.Forms.Button();
             this.ColRowRad = new System.Windows.Forms.RadioButton();
             this.RowColRad = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
@@ -59,8 +61,6 @@ namespace PracaDyplomowa_MichalMoric
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label5 = new System.Windows.Forms.Label();
-            this.SaveKey_Btn = new System.Windows.Forms.Button();
-            this.LoaKey_Btn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Key_Grid)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -163,6 +163,26 @@ namespace PracaDyplomowa_MichalMoric
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Klucz";
+            // 
+            // LoaKey_Btn
+            // 
+            this.LoaKey_Btn.Location = new System.Drawing.Point(494, 364);
+            this.LoaKey_Btn.Name = "LoaKey_Btn";
+            this.LoaKey_Btn.Size = new System.Drawing.Size(75, 40);
+            this.LoaKey_Btn.TabIndex = 11;
+            this.LoaKey_Btn.Text = "Wczytaj Klucz";
+            this.LoaKey_Btn.UseVisualStyleBackColor = true;
+            this.LoaKey_Btn.Click += new System.EventHandler(this.LoaKey_Btn_Click);
+            // 
+            // SaveKey_Btn
+            // 
+            this.SaveKey_Btn.Location = new System.Drawing.Point(494, 306);
+            this.SaveKey_Btn.Name = "SaveKey_Btn";
+            this.SaveKey_Btn.Size = new System.Drawing.Size(75, 42);
+            this.SaveKey_Btn.TabIndex = 10;
+            this.SaveKey_Btn.Text = "Zapisz Klucz";
+            this.SaveKey_Btn.UseVisualStyleBackColor = true;
+            this.SaveKey_Btn.Click += new System.EventHandler(this.SaveKey_Btn_Click);
             // 
             // ColRowRad
             // 
@@ -384,26 +404,6 @@ namespace PracaDyplomowa_MichalMoric
             this.label5.TabIndex = 0;
             this.label5.Text = resources.GetString("label5.Text");
             // 
-            // SaveKey_Btn
-            // 
-            this.SaveKey_Btn.Location = new System.Drawing.Point(494, 306);
-            this.SaveKey_Btn.Name = "SaveKey_Btn";
-            this.SaveKey_Btn.Size = new System.Drawing.Size(75, 42);
-            this.SaveKey_Btn.TabIndex = 10;
-            this.SaveKey_Btn.Text = "Zapisz Klucz";
-            this.SaveKey_Btn.UseVisualStyleBackColor = true;
-            this.SaveKey_Btn.Click += new System.EventHandler(this.SaveKey_Btn_Click);
-            // 
-            // LoaKey_Btn
-            // 
-            this.LoaKey_Btn.Location = new System.Drawing.Point(494, 364);
-            this.LoaKey_Btn.Name = "LoaKey_Btn";
-            this.LoaKey_Btn.Size = new System.Drawing.Size(75, 40);
-            this.LoaKey_Btn.TabIndex = 11;
-            this.LoaKey_Btn.Text = "Wczytaj Klucz";
-            this.LoaKey_Btn.UseVisualStyleBackColor = true;
-            this.LoaKey_Btn.Click += new System.EventHandler(this.LoaKey_Btn_Click);
-            // 
             // PolibiusForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -411,9 +411,12 @@ namespace PracaDyplomowa_MichalMoric
             this.ClientSize = new System.Drawing.Size(1150, 551);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.HelpButton = true;
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "PolibiusForm";
             this.Text = "PolibiusForm";
+            this.HelpButtonClicked += new System.ComponentModel.CancelEventHandler(this.PolibiusForm_HelpButtonClicked);
             ((System.ComponentModel.ISupportInitialize)(this.Key_Grid)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

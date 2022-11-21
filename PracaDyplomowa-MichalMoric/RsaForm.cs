@@ -34,9 +34,9 @@ namespace PracaDyplomowa_MichalMoric
                 NBox.Text = output[0].ToString();
                 PublicKeyBox.Text = output[2].ToString();
                 PrivateKeyBox.Text = output[3].ToString();
-                InstructionLabel.Text = "Krok 1 :\n";
-                InstructionLabel.Text += "Losowo wybrano dwie liczby pierwsze : p oraz q\n";
-                InstructionLabel.Text += "p = " + output[4] + " q = " + output[5]+"\n\n";
+                InstructionLabel.Text = "Krok 1 :" + Environment.NewLine;
+                InstructionLabel.Text += "Losowo wybrano dwie liczby pierwsze : p oraz q" + Environment.NewLine;
+                InstructionLabel.Text += "p = " + output[4] + " q = " + output[5] + Environment.NewLine + Environment.NewLine;
             }
             else if(ChosenButton.Checked == true)
             {
@@ -50,39 +50,43 @@ namespace PracaDyplomowa_MichalMoric
                         NBox.Text = output[0].ToString();
                         PublicKeyBox.Text = output[2].ToString();
                         PrivateKeyBox.Text = output[3].ToString();
-                        InstructionLabel.Text = "Krok 1 :\n";
-                        InstructionLabel.Text += "Użytkownik wybrał dwie liczby pierwsze : p oraz q\n";
-                        InstructionLabel.Text += "p = " + output[4] + " q = " + output[5] + "\n\n";
+                        InstructionLabel.Text = "Krok 1 :" + Environment.NewLine;
+                        InstructionLabel.Text += "Użytkownik wybrał dwie liczby pierwsze : p oraz q" + Environment.NewLine;
+                        InstructionLabel.Text += "p = " + output[4] + " q = " + output[5]  + Environment.NewLine + Environment.NewLine;
                     }
                     else
                     {
                         correct = false;
-                        MessageBox.Show("Obie liczby muszą być liczbami pierwszymi");
+                        MessageBox.Show("Obie liczby muszą być liczbami pierwszymi","",0,MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
                     correct = false;
-                    MessageBox.Show("Proszę wprowadzić wartości liczbowe do pól P i Q");
+                    MessageBox.Show("Proszę wprowadzić wartości liczbowe do pól P i Q", "", 0, MessageBoxIcon.Error);
                 }
             }
             if(correct == true)
             {
-                InstructionLabel.Text += "Krok 2 :\n";
-                InstructionLabel.Text += "Obliczamy liczbę n = p * q, jest to część wspólna klucza publicznego i prywatnego\n";
-                InstructionLabel.Text +=  output[4] + " * " + output[5] + " = "+ output[0] + "\n\n";
-                InstructionLabel.Text += "Krok 3 :\n";
-                InstructionLabel.Text += "Obliczamy wartość funkcji eulera phi = (p - 1) * (q - 1) \n";
-                InstructionLabel.Text += "("+output[4] + "-1) * (" + output[5] + "-1) = " + output[1] + "\n\n";
-                InstructionLabel.Text += "Krok 4 :\n";
-                InstructionLabel.Text += "Znajdujemy liczbę e która spełnia 3 warunki: \n";
-                InstructionLabel.Text += "1: Jest większa od 1, 2: jest mniejsza od phi, 3: jest względnie pierwsza z phi \n";
-                InstructionLabel.Text += "czyli jej największy wspólny dzielnik z phi jest równy 1 \n";
-                InstructionLabel.Text += "Jest "+ output[6] + " takich liczb a my z nich losowo wybierzemy: "+ output[2];
-                InstructionLabel2.Text = "Krok 5 :\n";
-                InstructionLabel2.Text += "Znajdujemy liczbę d która jest odwrotnoscią modularną e i phi: "+ output[3];
-                InstructionLabel2.Text += "\n\nKlucz publiczny stanowiony jest przez parę liczb e i n \na klucz prywatny przez d i n";
+                InstructionLabel.Text += "Krok 2 :" + Environment.NewLine;
+                InstructionLabel.Text += "Obliczamy liczbę n = p * q, jest to część wspólna klucza publicznego i prywatnego" + Environment.NewLine;
+                InstructionLabel.Text +=  output[4] + " * " + output[5] + " = "+ output[0]  + Environment.NewLine + Environment.NewLine;
+                InstructionLabel.Text += "Krok 3 :" + Environment.NewLine;
+                InstructionLabel.Text += "Obliczamy wartość funkcji eulera phi = (p - 1) * (q - 1) " + Environment.NewLine;
+                InstructionLabel.Text += "("+output[4] + "-1) * (" + output[5] + "-1) = " + output[1] +  Environment.NewLine + Environment.NewLine;
+                InstructionLabel.Text += "Krok 4 :" + Environment.NewLine;
+                InstructionLabel.Text += "Znajdujemy liczbę e która spełnia 3 warunki: " + Environment.NewLine;
+                InstructionLabel.Text += "1: Jest większa od 1, 2: jest mniejsza od phi, 3: jest względnie pierwsza z phi " + Environment.NewLine;
+                InstructionLabel.Text += "czyli jej największy wspólny dzielnik z phi jest równy 1 " + Environment.NewLine;
+                InstructionLabel.Text += "Jest "+ output[6] + " takich liczb a my z nich losowo wybierzemy: "+ output[2] + Environment.NewLine + Environment.NewLine;
+                InstructionLabel.Text += "Krok 5 :" + Environment.NewLine;
+                InstructionLabel.Text += "Znajdujemy liczbę d która jest odwrotnoscią modularną e i phi: "+ output[3] + Environment.NewLine;
+                InstructionLabel.Text += "Klucz publiczny stanowiony jest przez parę liczb e i n a klucz prywatny przez d i n";
 
+            }
+            if (output[0].ToString().Length <= 3)
+            {
+                MessageBox.Show("Ostrożnie , wartość n jest bardzo krótka, jeżeli twoja wiadomość liczbowa będzie większa od n nie zaszyfruje się poprawnie\n a jeżeli n jest mniejsze od 255 wiadomości tekstowe też mogą być zaszyfrowane niepoprawnie");
             }
             
         }
@@ -101,27 +105,25 @@ namespace PracaDyplomowa_MichalMoric
                         int message = Convert.ToInt32(InputBox.Text);
                         BigInteger output = cypher.encryptNumber(message, E, n);
                         OutputBox.Text = output.ToString();
-                        InstructionLabel.Text = "Liczba wejsciowa m została zaszyfrowana z użyciem następującego wzoru:\n";
-                        InstructionLabel.Text += "m^e % n\n";
-                        InstructionLabel.Text += "Zaszyfrowana liczba c jest równa: " + output;
-                        InstructionLabel2.Text = "";
+                        InstructionLabel.Text = "Liczba wejsciowa m została zaszyfrowana z użyciem następującego wzoru:" + Environment.NewLine;
+                        InstructionLabel.Text += "m^e % n" + Environment.NewLine;
+                        InstructionLabel.Text += "Zaszyfrowana liczba c jest równa: " + output + Environment.NewLine + Environment.NewLine;
                     }
                     else
                     {
-                        MessageBox.Show("Proszę podać liczbę");
+                        MessageBox.Show("Proszę podać liczbę", "", 0, MessageBoxIcon.Error);
                     }
                 }
                 else if (ASCIIButton.Checked)
                 {
                     string output = cypher.encryptAscii(InputBox.Text, E, n).ToString();
                     OutputBox.Text = output;
-                    InstructionLabel.Text = "Wiadomość zaszyfrowana wygląda tak:\n"+ output;
-                    InstructionLabel2.Text = "";
+                    InstructionLabel.Text = "Wiadomość zaszyfrowana wygląda tak:"+ output + Environment.NewLine;
                 }
             }
             else
             {
-                MessageBox.Show("Proszę wprowadzić liczbowy klucz publiczny (pola N i E) oraz wiadomość do zaszyfrowania");
+                MessageBox.Show("Proszę wprowadzić liczbowy klucz publiczny (pola N i E) oraz wiadomość do zaszyfrowania", "", 0, MessageBoxIcon.Error);
             }
         }
 
@@ -140,29 +142,27 @@ namespace PracaDyplomowa_MichalMoric
                         int message = Convert.ToInt32(InputBox.Text);
                         BigInteger output = cypher.decryptNumber(message, d, n);
                         OutputBox.Text = output.ToString();
-                        InstructionLabel.Text = "Zaszyfrowana liczba wejsciowa c została odszyfrowana z użyciem następującego wzoru:\n";
-                        InstructionLabel.Text += "c^d % n\n";
-                        InstructionLabel.Text += "Odszyfrowana liczba m jest równa: " + output;
-                        InstructionLabel2.Text = "";
+                        InstructionLabel.Text += "Zaszyfrowana liczba wejsciowa c została odszyfrowana z użyciem następującego wzoru:"+ Environment.NewLine;
+                        InstructionLabel.Text += "c^d % n" + Environment.NewLine;
+                        InstructionLabel.Text += "Odszyfrowana liczba m jest równa: " + Environment.NewLine + output;
                     }
                     else
                     {
-                        MessageBox.Show("Proszę podać liczbę");
+                        MessageBox.Show("Proszę podać liczbę", "", 0, MessageBoxIcon.Error);
                     }
                 }
                 else if (ASCIIButton.Checked)
                 {
                     string output = cypher.decryptAscii(InputBox.Text, d, n).ToString();
                     OutputBox.Text = output;
-                    InstructionLabel.Text = "Wiadomość odszyfrowana wygląda tak:\n" + output;
-                    InstructionLabel2.Text = "";
+                    InstructionLabel.Text = "Wiadomość odszyfrowana wygląda tak:" + Environment.NewLine + output;
                 }
 
 
             }
             else
             {
-                MessageBox.Show("Proszę wprowadzić liczbowy klucz prywatny (pola N i D) oraz wiadomość do deszyfrowania");
+                MessageBox.Show("Proszę wprowadzić liczbowy klucz prywatny (pola N i D) oraz wiadomość do deszyfrowania", "", 0, MessageBoxIcon.Error);
             }
 
         }
@@ -196,9 +196,8 @@ namespace PracaDyplomowa_MichalMoric
             int i;
             if(int.TryParse(NBox.Text, out i) && int.TryParse(PublicKeyBox.Text, out i) && InputBox.Text.Length > 0)
             {
-                InstructionLabel.Text = "Szyfrowanie wiadomosci odbędzie się poprzez reprezentowanie każdego ze znaków jako wartość ASCII\n";
-                InstructionLabel.Text += "i kodowanie go tym wzorem: m^e % n ";
-                InstructionLabel2.Text = "";
+                InstructionLabel.Text = "Szyfrowanie wiadomosci odbędzie się poprzez reprezentowanie każdego ze znaków jako wartość ASCII" + Environment.NewLine;
+                InstructionLabel.Text += "i kodowanie go tym wzorem: m^e % n " + Environment.NewLine;
                 StepByStepEncryptBtn.Enabled = false;
                 Encrypt_Btn.Enabled = false;
                 StepByStepDecryptBtn.Enabled = false;
@@ -211,7 +210,7 @@ namespace PracaDyplomowa_MichalMoric
             }
             else
             {
-                MessageBox.Show("Proszę wprowadzić liczbowy klucz publiczny (pola N i E) oraz wiadomość do zaszyfrowania");
+                MessageBox.Show("Proszę wprowadzić liczbowy klucz publiczny (pola N i E) oraz wiadomość do zaszyfrowania", "", 0, MessageBoxIcon.Error);
             }
             
 
@@ -224,9 +223,8 @@ namespace PracaDyplomowa_MichalMoric
             int i;
             if(int.TryParse(NBox.Text, out i) && int.TryParse(PublicKeyBox.Text, out i) && InputBox.Text.Length > 0)
             {
-                InstructionLabel.Text = "Deszyfrowanie wiadomosci odbędzie się przez odkodowywanie każdej wartości z klucza tym wzorem: c^d % n \n";
-                InstructionLabel.Text += "z czego otrzymamy wartosci ASCII każdego znaku wiadomości";
-                InstructionLabel2.Text = "";
+                InstructionLabel.Text = "Deszyfrowanie wiadomosci odbędzie się przez odkodowywanie każdej wartości z klucza tym wzorem: c^d % n " + Environment.NewLine;
+                InstructionLabel.Text += "z czego otrzymamy wartosci ASCII każdego znaku wiadomości" + Environment.NewLine;
                 StepByStepEncryptBtn.Enabled = false;
                 Encrypt_Btn.Enabled = false;
                 StepByStepDecryptBtn.Enabled = false;
@@ -240,7 +238,7 @@ namespace PracaDyplomowa_MichalMoric
             }
             else
             {
-                MessageBox.Show("Proszę wprowadzić liczbowy klucz prywatny (pola N i D) oraz wiadomość do deszyfrowania");
+                MessageBox.Show("Proszę wprowadzić liczbowy klucz prywatny (pola N i D) oraz wiadomość do deszyfrowania", "", 0, MessageBoxIcon.Error);
             }
         }
 
@@ -250,22 +248,22 @@ namespace PracaDyplomowa_MichalMoric
             {
                 if (encryptionIterator < InputBox.Text.Length) 
                 {
-                    InstructionLabel.Text = "Znak " + InputBox.Text[encryptionIterator] + " to w kodzie ASCII: " + Convert.ToInt32(InputBox.Text[encryptionIterator]);
+                    InstructionLabel.Text += "Znak " + InputBox.Text[encryptionIterator] + " to w kodzie ASCII: " + Convert.ToInt32(InputBox.Text[encryptionIterator]) + Environment.NewLine;
                     string newletter = cypher.encryptAsciiCharacter(InputBox.Text[encryptionIterator], Convert.ToInt32(PublicKeyBox.Text), Convert.ToInt32(NBox.Text)).ToString();
-                    InstructionLabel.Text += "\n zaszyfrowany wygląda tak: " + newletter;
+                    InstructionLabel.Text += " zaszyfrowany wygląda tak: " + newletter + Environment.NewLine;
                     stepbystepOutput += newletter + "-";
-                    InstructionLabel.Text += "\n Aktualny stan wiadomości wygląda tak: " + stepbystepOutput;
+                    InstructionLabel.Text += " Aktualny stan wiadomości wygląda tak: " + stepbystepOutput + Environment.NewLine + Environment.NewLine;
                 }
                 else
                 {
                     stepbystepOutput=stepbystepOutput.Remove(stepbystepOutput.Length - 1);
-                    InstructionLabel.Text = "Wiadomość końcowa wygląda tak:" + stepbystepOutput;
+                    InstructionLabel.Text += "Wiadomość końcowa wygląda tak:" + stepbystepOutput + Environment.NewLine;
                     OutputBox.Text = stepbystepOutput;
                     StepByStepEncryptBtn.Enabled = true;
                     Encrypt_Btn.Enabled = true;
                     StepByStepDecryptBtn.Enabled = true;
                     Decrypt_Btn.Enabled = true;
-                    NextStepBtn.Enabled = true;
+                    NextStepBtn.Enabled = false;
                     InputBox.Enabled = true;
                 }
 
@@ -276,24 +274,30 @@ namespace PracaDyplomowa_MichalMoric
                 if (encryptionIterator < decryptionMessage.Length)
                 {
                     char newletter = cypher.decryptAsciiCharacter(Convert.ToInt32(decryptionMessage[encryptionIterator]), Convert.ToInt32(PrivateKeyBox.Text), Convert.ToInt32(NBox.Text));
-                    InstructionLabel.Text = "Liczba " + decryptionMessage[encryptionIterator] + " zdeszyfrowana to : " + (int)newletter;
-                    InstructionLabel.Text += "\n co dopowiada znakowi: " + newletter;
+                    InstructionLabel.Text += "Liczba " + decryptionMessage[encryptionIterator] + " zdeszyfrowana to : " + (int)newletter + Environment.NewLine;
+                    InstructionLabel.Text += "\n co dopowiada znakowi: " + newletter + Environment.NewLine;
                     stepbystepOutput += newletter;
-                    InstructionLabel.Text += "\n Aktualny stan wiadomości wygląda tak: " + stepbystepOutput;
+                    InstructionLabel.Text += "\n Aktualny stan wiadomości wygląda tak: " + stepbystepOutput + Environment.NewLine + Environment.NewLine;
                 }
                 else
                 {
-                    InstructionLabel.Text = "Wiadomość końcowa wygląda tak:" + stepbystepOutput;
+                    InstructionLabel.Text += "Wiadomość końcowa wygląda tak:" + stepbystepOutput + Environment.NewLine;
                     OutputBox.Text = stepbystepOutput;
                     StepByStepEncryptBtn.Enabled = true;
                     Encrypt_Btn.Enabled = true;
                     StepByStepDecryptBtn.Enabled = true;
                     Decrypt_Btn.Enabled = true;
-                    NextStepBtn.Enabled = true;
+                    NextStepBtn.Enabled = false;
                     InputBox.Enabled = true;
                 }
             }
             encryptionIterator++;   
+        }
+
+        private void RsaForm_HelpButtonClicked(object sender, CancelEventArgs e)
+        {
+            RsaHelp help = new RsaHelp();
+            help.Show();
         }
     }
 }

@@ -20,19 +20,19 @@ namespace PracaDyplomowa_MichalMoric
         private void Cezar_Button_Click(object sender, EventArgs e)
         {
             CezarForm form = new CezarForm();
-            form.ShowDialog();
+            form.Show();
         }
 
         private void Polibius_Button_Click(object sender, EventArgs e)
         {
             PolibiusForm form = new PolibiusForm();
-            form.ShowDialog();
+            form.Show();
         }
 
         private void Rsa_Button_Click(object sender, EventArgs e)
         {
             RsaForm form = new RsaForm();
-            form.ShowDialog();
+            form.Show();
         }
     }
 }

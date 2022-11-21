@@ -54,6 +54,12 @@
     <Compile Include="CezarForm.Designer.cs">
       <DependentUpon>CezarForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CezarHelp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CezarHelp.Designer.cs">
+      <DependentUpon>CezarHelp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +73,12 @@
     <Compile Include="PolibiusForm.Designer.cs">
       <DependentUpon>PolibiusForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="PolibiusHelp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PolibiusHelp.Designer.cs">
+      <DependentUpon>PolibiusHelp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RSACypher.cs" />
@@ -76,14 +88,26 @@
     <Compile Include="RsaForm.Designer.cs">
       <DependentUpon>RsaForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="RsaHelp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RsaHelp.Designer.cs">
+      <DependentUpon>RsaHelp.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="CezarForm.resx">
       <DependentUpon>CezarForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CezarHelp.resx">
+      <DependentUpon>CezarHelp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PolibiusForm.resx">
       <DependentUpon>PolibiusForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PolibiusHelp.resx">
+      <DependentUpon>PolibiusHelp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -96,6 +120,9 @@
     </Compile>
     <EmbeddedResource Include="RsaForm.resx">
       <DependentUpon>RsaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RsaHelp.resx">
+      <DependentUpon>RsaHelp.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

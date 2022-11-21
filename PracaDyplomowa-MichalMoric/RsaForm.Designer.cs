@@ -29,7 +29,6 @@ namespace PracaDyplomowa_MichalMoric
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RsaForm));
             this.PublicKeyBox = new System.Windows.Forms.TextBox();
             this.PrivateKeyBox = new System.Windows.Forms.TextBox();
             this.NBox = new System.Windows.Forms.TextBox();
@@ -54,25 +53,17 @@ namespace PracaDyplomowa_MichalMoric
             this.ASCIIButton = new System.Windows.Forms.RadioButton();
             this.NumberButton = new System.Windows.Forms.RadioButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.InstructionLabel2 = new System.Windows.Forms.Label();
-            this.InstructionLabel = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.StepByStepEncryptBtn = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.StepByStepDecryptBtn = new System.Windows.Forms.Button();
             this.NextStepBtn = new System.Windows.Forms.Button();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label7 = new System.Windows.Forms.Label();
+            this.InstructionLabel = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // PublicKeyBox
@@ -135,7 +126,7 @@ namespace PracaDyplomowa_MichalMoric
             // 
             // InputBox
             // 
-            this.InputBox.Location = new System.Drawing.Point(161, 15);
+            this.InputBox.Location = new System.Drawing.Point(143, 21);
             this.InputBox.Name = "InputBox";
             this.InputBox.Size = new System.Drawing.Size(169, 20);
             this.InputBox.TabIndex = 7;
@@ -143,7 +134,7 @@ namespace PracaDyplomowa_MichalMoric
             // Label
             // 
             this.Label.AutoSize = true;
-            this.Label.Location = new System.Drawing.Point(53, 15);
+            this.Label.Location = new System.Drawing.Point(35, 21);
             this.Label.Name = "Label";
             this.Label.Size = new System.Drawing.Size(66, 13);
             this.Label.TabIndex = 8;
@@ -151,7 +142,7 @@ namespace PracaDyplomowa_MichalMoric
             // 
             // OutputBox
             // 
-            this.OutputBox.Location = new System.Drawing.Point(161, 68);
+            this.OutputBox.Location = new System.Drawing.Point(143, 74);
             this.OutputBox.Name = "OutputBox";
             this.OutputBox.Size = new System.Drawing.Size(169, 20);
             this.OutputBox.TabIndex = 9;
@@ -159,7 +150,7 @@ namespace PracaDyplomowa_MichalMoric
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(56, 74);
+            this.label4.Location = new System.Drawing.Point(38, 80);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(42, 13);
             this.label4.TabIndex = 10;
@@ -234,7 +225,7 @@ namespace PracaDyplomowa_MichalMoric
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Location = new System.Drawing.Point(424, 4);
+            this.groupBox1.Location = new System.Drawing.Point(429, 7);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(363, 380);
             this.groupBox1.TabIndex = 17;
@@ -270,7 +261,7 @@ namespace PracaDyplomowa_MichalMoric
             // 
             this.groupBox2.Controls.Add(this.ASCIIButton);
             this.groupBox2.Controls.Add(this.NumberButton);
-            this.groupBox2.Location = new System.Drawing.Point(45, 107);
+            this.groupBox2.Location = new System.Drawing.Point(27, 113);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(135, 100);
             this.groupBox2.TabIndex = 18;
@@ -304,38 +295,19 @@ namespace PracaDyplomowa_MichalMoric
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.InstructionLabel2);
             this.groupBox3.Controls.Add(this.InstructionLabel);
-            this.groupBox3.Location = new System.Drawing.Point(7, 390);
+            this.groupBox3.Location = new System.Drawing.Point(12, 393);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(755, 303);
             this.groupBox3.TabIndex = 19;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Instrukcje";
             // 
-            // InstructionLabel2
-            // 
-            this.InstructionLabel2.AutoSize = true;
-            this.InstructionLabel2.Location = new System.Drawing.Point(415, 29);
-            this.InstructionLabel2.Name = "InstructionLabel2";
-            this.InstructionLabel2.Size = new System.Drawing.Size(16, 13);
-            this.InstructionLabel2.TabIndex = 1;
-            this.InstructionLabel2.Text = "...";
-            // 
-            // InstructionLabel
-            // 
-            this.InstructionLabel.AutoSize = true;
-            this.InstructionLabel.Location = new System.Drawing.Point(6, 29);
-            this.InstructionLabel.Name = "InstructionLabel";
-            this.InstructionLabel.Size = new System.Drawing.Size(16, 13);
-            this.InstructionLabel.TabIndex = 0;
-            this.InstructionLabel.Text = "...";
-            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.StepByStepEncryptBtn);
             this.groupBox4.Controls.Add(this.Encrypt_Btn);
-            this.groupBox4.Location = new System.Drawing.Point(16, 216);
+            this.groupBox4.Location = new System.Drawing.Point(21, 219);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(200, 100);
             this.groupBox4.TabIndex = 20;
@@ -357,7 +329,7 @@ namespace PracaDyplomowa_MichalMoric
             // 
             this.groupBox5.Controls.Add(this.StepByStepDecryptBtn);
             this.groupBox5.Controls.Add(this.Decrypt_Btn);
-            this.groupBox5.Location = new System.Drawing.Point(218, 216);
+            this.groupBox5.Location = new System.Drawing.Point(223, 219);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(200, 100);
             this.groupBox5.TabIndex = 21;
@@ -378,7 +350,7 @@ namespace PracaDyplomowa_MichalMoric
             // NextStepBtn
             // 
             this.NextStepBtn.Enabled = false;
-            this.NextStepBtn.Location = new System.Drawing.Point(175, 322);
+            this.NextStepBtn.Location = new System.Drawing.Point(180, 325);
             this.NextStepBtn.Name = "NextStepBtn";
             this.NextStepBtn.Size = new System.Drawing.Size(75, 62);
             this.NextStepBtn.TabIndex = 22;
@@ -386,66 +358,38 @@ namespace PracaDyplomowa_MichalMoric
             this.NextStepBtn.UseVisualStyleBackColor = true;
             this.NextStepBtn.Click += new System.EventHandler(this.NextStepBtn_Click);
             // 
-            // tabControl1
+            // InstructionLabel
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(801, 725);
-            this.tabControl1.TabIndex = 23;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage1.Controls.Add(this.Label);
-            this.tabPage1.Controls.Add(this.NextStepBtn);
-            this.tabPage1.Controls.Add(this.InputBox);
-            this.tabPage1.Controls.Add(this.groupBox5);
-            this.tabPage1.Controls.Add(this.OutputBox);
-            this.tabPage1.Controls.Add(this.groupBox4);
-            this.tabPage1.Controls.Add(this.label4);
-            this.tabPage1.Controls.Add(this.groupBox3);
-            this.tabPage1.Controls.Add(this.groupBox1);
-            this.tabPage1.Controls.Add(this.groupBox2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(793, 699);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Demonstracja";
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage2.Controls.Add(this.label7);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(793, 699);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Instrukcja";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(-3, 18);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(755, 377);
-            this.label7.TabIndex = 0;
-            this.label7.Text = resources.GetString("label7.Text");
+            this.InstructionLabel.AcceptsReturn = true;
+            this.InstructionLabel.Location = new System.Drawing.Point(9, 19);
+            this.InstructionLabel.Multiline = true;
+            this.InstructionLabel.Name = "InstructionLabel";
+            this.InstructionLabel.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.InstructionLabel.Size = new System.Drawing.Size(711, 274);
+            this.InstructionLabel.TabIndex = 2;
             // 
             // RsaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(803, 717);
-            this.Controls.Add(this.tabControl1);
+            this.ClientSize = new System.Drawing.Size(804, 717);
+            this.Controls.Add(this.Label);
+            this.Controls.Add(this.NextStepBtn);
+            this.Controls.Add(this.InputBox);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox5);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.OutputBox);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.label4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.HelpButton = true;
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "RsaForm";
             this.Text = "RsaForm";
+            this.HelpButtonClicked += new System.ComponentModel.CancelEventHandler(this.RsaForm_HelpButtonClicked);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -454,12 +398,8 @@ namespace PracaDyplomowa_MichalMoric
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -489,16 +429,11 @@ namespace PracaDyplomowa_MichalMoric
         private System.Windows.Forms.RadioButton ASCIIButton;
         private System.Windows.Forms.RadioButton NumberButton;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label InstructionLabel;
-        private System.Windows.Forms.Label InstructionLabel2;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button StepByStepEncryptBtn;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Button StepByStepDecryptBtn;
         private System.Windows.Forms.Button NextStepBtn;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox InstructionLabel;
     }
 }

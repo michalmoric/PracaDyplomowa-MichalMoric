@@ -45,7 +45,7 @@ namespace PracaDyplomowa_MichalMoric
         {
             if(Key_Grid.ColumnCount== 9)
             {
-                MessageBox.Show("Program nie wspiera kluczy większych od 9 kolumn");
+                MessageBox.Show("Program nie wspiera kluczy większych od 9 kolumn", "", 0, MessageBoxIcon.Error);
             }
             else
             {
@@ -57,7 +57,7 @@ namespace PracaDyplomowa_MichalMoric
         {
             if (Key_Grid.ColumnCount == 2)
             {
-                MessageBox.Show("Nie może być mniej niż 2 kolumny");
+                MessageBox.Show("Nie może być mniej niż 2 kolumny", "", 0, MessageBoxIcon.Error);
             }
             else
             {
@@ -69,7 +69,7 @@ namespace PracaDyplomowa_MichalMoric
         {
             if (Key_Grid.RowCount == 9)
             {
-                MessageBox.Show("Program nie wspiera kluczy większych od 9 wierszy");
+                MessageBox.Show("Program nie wspiera kluczy większych od 9 wierszy", "", 0, MessageBoxIcon.Error);
             }
             else
             {
@@ -82,7 +82,7 @@ namespace PracaDyplomowa_MichalMoric
         {
             if (Key_Grid.RowCount == 2)
             {
-                MessageBox.Show("Nie może być mniej niż 2 wiersze");
+                MessageBox.Show("Nie może być mniej niż 2 wiersze", "", 0, MessageBoxIcon.Error);
             }
             else
             {
@@ -101,13 +101,13 @@ namespace PracaDyplomowa_MichalMoric
                     if(cell.Value == null)
                     {
                         valid = false;
-                        MessageBox.Show("Nie może być pustych wartości");
+                        MessageBox.Show("Nie może być pustych wartości", "", 0, MessageBoxIcon.Error);
                         break;
                     }
                     else if(cell.Value.ToString().Length != 1)
                     {
                         valid = false;
-                        MessageBox.Show("Każda wartość musi być 1 znakiem");
+                        MessageBox.Show("Każda wartość musi być 1 znakiem", "", 0, MessageBoxIcon.Error);
                         break;
                     }
                     else
@@ -145,7 +145,7 @@ namespace PracaDyplomowa_MichalMoric
                 }
                 else
                 {
-                    MessageBox.Show("Wszystke elementy klucza muszą być unikalne");
+                    MessageBox.Show("Wszystke elementy klucza muszą być unikalne", "", 0, MessageBoxIcon.Error);
                 }
             }
         }
@@ -186,7 +186,7 @@ namespace PracaDyplomowa_MichalMoric
             }
             else
             {
-                MessageBox.Show("Proszę wprowadzić wiadomość");
+                MessageBox.Show("Proszę wprowadzić wiadomość", "", 0, MessageBoxIcon.Error);
             }
         }
         private void StepByStepDecryptBtn_Click(object sender, EventArgs e)
@@ -209,12 +209,12 @@ namespace PracaDyplomowa_MichalMoric
                 }
                 else
                 {
-                    MessageBox.Show("Liczba znaków w wiadomosci musi być parzysta");
+                    MessageBox.Show("Liczba znaków w wiadomosci musi być parzysta", "", 0, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("Proszę wprowadzić wiadomość");
+                MessageBox.Show("Proszę wprowadzić wiadomość", "", 0, MessageBoxIcon.Error);
             }
         }
         private void NextStepBtn_Click(object sender, EventArgs e)
@@ -378,6 +378,12 @@ namespace PracaDyplomowa_MichalMoric
                 }
             }
 
+        }
+
+        private void PolibiusForm_HelpButtonClicked(object sender, CancelEventArgs e)
+        {
+            PolibiusHelp help = new PolibiusHelp();
+            help.Show();
         }
     }
 }

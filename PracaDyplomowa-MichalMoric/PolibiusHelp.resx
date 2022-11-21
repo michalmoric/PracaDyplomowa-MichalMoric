@@ -117,4 +117,26 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Szyfr Polibiusza lub inaczej Szachownica Polibusza jest trochę bardziej skomplikowanym szyfrem od szyfru Cezara i został wymyślony w starożytnosci przez greckiego historyka Polibiusza
+
+W szyfsze Polibiusza klucz stanowi tabela dwu wymiarowa zawierająca znaki. Klasycznie jest to tabela 5 na 5 zaierające znaki alfabetu greckiego z jednym miejscem wolnym, lub alfabetu łacińskiego z jedną literą pominiętą.
+
+Szyfr może szyfrować wiadomości których znaki znajdują się w tabeli. Zastępuje każdy znak odpowiadającym mu numerem wiersza i tabeli. Przy deszyfrowaniu zamienia numery wiersza i tabeli na odpowaidające im znaki.
+
+W programie przed rozpoczęciem szyfrowania/deszyfrowania należy wprowadzić klucz w sekcji "Klucz" . Tabela może być dowolnych rozmiarów pomiędzy 2 a 9 w obu wymiarach. Każdy znak w tabeli musi być niepowtarzający się.
+
+Dodawać i usuwać wiersze oraz kolumny można za pomocą odpowiednich przycisków pod tabelą. Przełącznikiem pod tabelą można też ustalić czy znaki będą szyfrowane w kolejności wiersz/kolumna czy kolumna/wiersz.
+
+Po wprowadzeniu klucza należy go załadować przyciskiem "Załaduj klucz" po czym można zacząć szyfrować/deszyfrować. Obie te obcje można wykonywać szybko "Na raz" lub krok po kroku żeby zobaczyć jak szyfrowany jest 
+każdy znak z osobna.
+
+Należy pamiętać że jeśli w kluczu nie znajdzie się któryś ze znaków wiadomości szyfrowanej to zostanie on pominięty i nie pokaże się po odzyfrowaniu.
+
+Przy odszyfrowywaniu należy pamiętać że długość wiadomości odszyfrowywanej musi być parzysta z racji że każdemu znakowi odpowiada numer wiersza i kolumny.
+
+Żeby móc zmienić klucz należy go zwolnić przyciskiem "Zwolnij Klucz" po czym można go modyfikować.
+
+</value>
+  </data>
 </root>

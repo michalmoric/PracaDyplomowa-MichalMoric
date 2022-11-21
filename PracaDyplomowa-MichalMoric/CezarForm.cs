@@ -22,6 +22,7 @@ namespace PracaDyplomowa_MichalMoric
             MessageOutputLabel.BackColor = this.BackColor;
             MessageOutputLabel.TabStop = false;
         }
+
         private bool encryptOrDecrypt = false;
         private int offsetToGo = 0;
         CezarCypher cypher = new CezarCypher();
@@ -41,7 +42,7 @@ namespace PracaDyplomowa_MichalMoric
         {
             if(CheckForErrors() == false)
             {
-                MessageBox.Show("Proszę podać prawidłowe dane wejsciowe: Wiadomość musi składać tylko z dużych i małych liter a przesunięcie musi być dodatnią liczbą całkowitą");
+                MessageBox.Show("Proszę podać prawidłowe dane wejsciowe: Wiadomość musi składać tylko z dużych i małych liter a przesunięcie musi być dodatnią liczbą całkowitą", "", 0, MessageBoxIcon.Error);
             }
             else
             {
@@ -63,7 +64,7 @@ namespace PracaDyplomowa_MichalMoric
 
             if (CheckForErrors() == false)
             {
-                MessageBox.Show("Proszę podać prawidłowe dane wejsciowe: Wiadomość musi składać tylko z dużych i małych liter a przesunięcie musi być dodatnią liczbą całkowitą");
+                MessageBox.Show("Proszę podać prawidłowe dane wejsciowe: Wiadomość musi składać tylko z dużych i małych liter a przesunięcie musi być dodatnią liczbą całkowitą", "", 0, MessageBoxIcon.Error);
             }
             else
             {
@@ -127,7 +128,7 @@ namespace PracaDyplomowa_MichalMoric
         {
             if (CheckForErrors() == false)
             {
-                MessageBox.Show("Proszę podać prawidłowe dane wejsciowe: Wiadomość musi składać tylko z dużych i małych liter a przesunięcie musi być dodatnią liczbą całkowitą");
+                MessageBox.Show("Proszę podać prawidłowe dane wejsciowe: Wiadomość musi składać tylko z dużych i małych liter a przesunięcie musi być dodatnią liczbą całkowitą", "", 0, MessageBoxIcon.Error);
             }
             else
             {
@@ -140,13 +141,19 @@ namespace PracaDyplomowa_MichalMoric
         {
             if (CheckForErrors() == false)
             {
-                MessageBox.Show("Proszę podać prawidłowe dane wejsciowe: Wiadomość musi składać tylko z dużych i małych liter a przesunięcie musi być dodatnią liczbą całkowitą");
+                MessageBox.Show("Proszę podać prawidłowe dane wejsciowe: Wiadomość musi składać tylko z dużych i małych liter a przesunięcie musi być dodatnią liczbą całkowitą", "", 0, MessageBoxIcon.Error);
             }
             else
             {
                 InstructionLabel.Text = " Wiadomość końcowa wygląda tak:";
                 MessageOutputLabel.Text = cypher.CezarDecrypt(InputMessageBox.Text, Int32.Parse(OffsetBox.Text));
             }
+        }
+
+        private void CezarForm_HelpButtonClicked(object sender, CancelEventArgs e)
+        {
+            CezarHelp help = new CezarHelp();
+            help.Show();
         }
     }
 }
