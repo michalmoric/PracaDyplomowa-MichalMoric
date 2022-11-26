@@ -30,7 +30,7 @@ namespace PracaDyplomowa_MichalMoric
             Key_Grid.Columns.Add("4", "4");
             Key_Grid.Columns.Add("5", "5");
             Key_Grid.Rows.Add("A","B","C","D","E");
-            Key_Grid.Rows.Add("F","G","H","I","J");
+            Key_Grid.Rows.Add("F","G","H","I","K");
             Key_Grid.Rows.Add("L", "M", "N", "O", "P");
             Key_Grid.Rows.Add("Q", "R", "S", "T", "U");
             Key_Grid.Rows.Add("V", "W", "X", "Y", "Z");

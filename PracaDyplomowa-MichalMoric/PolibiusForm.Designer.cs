@@ -29,7 +29,6 @@ namespace PracaDyplomowa_MichalMoric
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PolibiusForm));
             this.Key_Grid = new System.Windows.Forms.DataGridView();
             this.AddCol_Btn = new System.Windows.Forms.Button();
             this.DelCol_Btn = new System.Windows.Forms.Button();
@@ -57,18 +56,11 @@ namespace PracaDyplomowa_MichalMoric
             this.InstructionLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Key_Grid)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.ProccesGroup.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // Key_Grid
@@ -157,7 +149,7 @@ namespace PracaDyplomowa_MichalMoric
             this.groupBox1.Controls.Add(this.DelCol_Btn);
             this.groupBox1.Controls.Add(this.DelRow_Btn);
             this.groupBox1.Controls.Add(this.AddRow_Btn);
-            this.groupBox1.Location = new System.Drawing.Point(495, 5);
+            this.groupBox1.Location = new System.Drawing.Point(526, 9);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(614, 426);
             this.groupBox1.TabIndex = 7;
@@ -221,7 +213,7 @@ namespace PracaDyplomowa_MichalMoric
             // 
             this.groupBox2.Controls.Add(this.EncryptBtn);
             this.groupBox2.Controls.Add(this.StepByStepEncryptBtn);
-            this.groupBox2.Location = new System.Drawing.Point(14, 341);
+            this.groupBox2.Location = new System.Drawing.Point(45, 345);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(109, 151);
             this.groupBox2.TabIndex = 8;
@@ -254,7 +246,7 @@ namespace PracaDyplomowa_MichalMoric
             // 
             this.groupBox3.Controls.Add(this.DecryptBtn);
             this.groupBox3.Controls.Add(this.StepByStepDecryptBtn);
-            this.groupBox3.Location = new System.Drawing.Point(155, 341);
+            this.groupBox3.Location = new System.Drawing.Point(186, 345);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(109, 151);
             this.groupBox3.TabIndex = 9;
@@ -286,7 +278,7 @@ namespace PracaDyplomowa_MichalMoric
             // NextStepBtn
             // 
             this.NextStepBtn.Enabled = false;
-            this.NextStepBtn.Location = new System.Drawing.Point(305, 369);
+            this.NextStepBtn.Location = new System.Drawing.Point(336, 373);
             this.NextStepBtn.Name = "NextStepBtn";
             this.NextStepBtn.Size = new System.Drawing.Size(75, 55);
             this.NextStepBtn.TabIndex = 10;
@@ -297,7 +289,7 @@ namespace PracaDyplomowa_MichalMoric
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 35);
+            this.label1.Location = new System.Drawing.Point(63, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(66, 13);
             this.label1.TabIndex = 11;
@@ -305,7 +297,7 @@ namespace PracaDyplomowa_MichalMoric
             // 
             // InputMessageBox
             // 
-            this.InputMessageBox.Location = new System.Drawing.Point(125, 35);
+            this.InputMessageBox.Location = new System.Drawing.Point(156, 39);
             this.InputMessageBox.Name = "InputMessageBox";
             this.InputMessageBox.Size = new System.Drawing.Size(232, 20);
             this.InputMessageBox.TabIndex = 12;
@@ -316,7 +308,7 @@ namespace PracaDyplomowa_MichalMoric
             this.ProccesGroup.Controls.Add(this.InstructionLabel);
             this.ProccesGroup.Controls.Add(this.label3);
             this.ProccesGroup.Controls.Add(this.label2);
-            this.ProccesGroup.Location = new System.Drawing.Point(14, 94);
+            this.ProccesGroup.Location = new System.Drawing.Point(45, 98);
             this.ProccesGroup.Name = "ProccesGroup";
             this.ProccesGroup.Size = new System.Drawing.Size(475, 179);
             this.ProccesGroup.TabIndex = 13;
@@ -357,59 +349,18 @@ namespace PracaDyplomowa_MichalMoric
             this.label2.TabIndex = 0;
             this.label2.Text = "Wiadomość:";
             // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(12, 5);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1132, 534);
-            this.tabControl1.TabIndex = 14;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.ProccesGroup);
-            this.tabPage1.Controls.Add(this.groupBox1);
-            this.tabPage1.Controls.Add(this.InputMessageBox);
-            this.tabPage1.Controls.Add(this.groupBox2);
-            this.tabPage1.Controls.Add(this.groupBox3);
-            this.tabPage1.Controls.Add(this.NextStepBtn);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1124, 508);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Demonstracja";
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage2.Controls.Add(this.label5);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1124, 508);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Instrukcja";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(18, 31);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(1089, 234);
-            this.label5.TabIndex = 0;
-            this.label5.Text = resources.GetString("label5.Text");
-            // 
             // PolibiusForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1150, 551);
-            this.Controls.Add(this.tabControl1);
+            this.ClientSize = new System.Drawing.Size(1152, 551);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.ProccesGroup);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.NextStepBtn);
+            this.Controls.Add(this.InputMessageBox);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.HelpButton = true;
             this.MaximizeBox = false;
@@ -424,12 +375,8 @@ namespace PracaDyplomowa_MichalMoric
             this.groupBox3.ResumeLayout(false);
             this.ProccesGroup.ResumeLayout(false);
             this.ProccesGroup.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -460,10 +407,6 @@ namespace PracaDyplomowa_MichalMoric
         private System.Windows.Forms.RadioButton ColRowRad;
         private System.Windows.Forms.RadioButton RowColRad;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button SaveKey_Btn;
         private System.Windows.Forms.Button LoaKey_Btn;
     }

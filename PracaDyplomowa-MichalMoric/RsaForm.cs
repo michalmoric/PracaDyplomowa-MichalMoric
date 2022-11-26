@@ -82,11 +82,11 @@ namespace PracaDyplomowa_MichalMoric
                 InstructionLabel.Text += "Krok 5 :" + Environment.NewLine;
                 InstructionLabel.Text += "Znajdujemy liczbę d która jest odwrotnoscią modularną e i phi: "+ output[3] + Environment.NewLine;
                 InstructionLabel.Text += "Klucz publiczny stanowiony jest przez parę liczb e i n a klucz prywatny przez d i n";
+                if (output[0].ToString().Length <= 3)
+                {
+                    MessageBox.Show("Ostrożnie , wartość n jest bardzo krótka, jeżeli twoja wiadomość liczbowa będzie większa od n nie zaszyfruje się poprawnie\n a jeżeli n jest mniejsze od 255 wiadomości tekstowe też mogą być zaszyfrowane niepoprawnie");
+                }
 
-            }
-            if (output[0].ToString().Length <= 3)
-            {
-                MessageBox.Show("Ostrożnie , wartość n jest bardzo krótka, jeżeli twoja wiadomość liczbowa będzie większa od n nie zaszyfruje się poprawnie\n a jeżeli n jest mniejsze od 255 wiadomości tekstowe też mogą być zaszyfrowane niepoprawnie");
             }
             
         }
