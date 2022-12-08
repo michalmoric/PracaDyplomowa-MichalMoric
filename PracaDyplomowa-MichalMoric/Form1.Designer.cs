@@ -74,7 +74,7 @@ namespace PracaDyplomowa_MichalMoric
             this.Cezar_Button.Name = "Cezar_Button";
             this.Cezar_Button.Size = new System.Drawing.Size(104, 57);
             this.Cezar_Button.TabIndex = 3;
-            this.Cezar_Button.Text = "Szyfr cezara";
+            this.Cezar_Button.Text = "Szyfr Cezara";
             this.Cezar_Button.UseVisualStyleBackColor = true;
             this.Cezar_Button.Click += new System.EventHandler(this.Cezar_Button_Click);
             // 

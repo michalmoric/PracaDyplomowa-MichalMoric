@@ -13,28 +13,40 @@ namespace PracaDyplomowa_MichalMoric
             string returnText = "";
             int rowNum = 1;
             int cellNum = 1;
-            foreach (List<string> row in charMatrix)
+            bool error = false;
+            foreach(List<string> row in charMatrix)
             {
-                foreach (string cell in row)
-                {
-                    if (letter == cell)
-                    {
-                        if (encryptMode == false)
-                        {
-                            returnText = rowNum.ToString() + cellNum.ToString();
-
-                        }
-                        else
-                        {
-                            returnText = cellNum.ToString() + rowNum.ToString();
-                        }
-                    }
-                    cellNum++;
-                }
-                rowNum++;
-                cellNum = 1;
+                if (row.Count > 9) error = true;
             }
-            return returnText;
+            if(error ==true || charMatrix.Count > 9)
+            {
+                return "";
+            }
+            else
+            {
+                foreach (List<string> row in charMatrix)
+                {
+                    foreach (string cell in row)
+                    {
+                        if (letter == cell)
+                        {
+                            if (encryptMode == false)
+                            {
+                                returnText = rowNum.ToString() + cellNum.ToString();
+
+                            }
+                            else
+                            {
+                                returnText = cellNum.ToString() + rowNum.ToString();
+                            }
+                        }
+                        cellNum++;
+                    }
+                    rowNum++;
+                    cellNum = 1;
+                }
+                return returnText;
+            }
         }
         public string OneLetterDecript(List<List<string>> charMatrix, string letter, bool encryptMode)
         {

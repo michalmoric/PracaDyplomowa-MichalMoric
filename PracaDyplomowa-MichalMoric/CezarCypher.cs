@@ -11,48 +11,54 @@ namespace PracaDyplomowa_MichalMoric
         public string ShiftTextRight(string Message)
         {
             string outputMessage = "";
-            for (int i = 0; i < Message.Length; i++)
+            if (Message.All(Char.IsLetter))
             {
-                if (Message[i] == 'z')
+                for (int i = 0; i < Message.Length; i++)
                 {
-                    outputMessage += 'A';
+                    if (Message[i] == 'z')
+                    {
+                        outputMessage += 'A';
+
+                    }
+                    else if (Message[i] == 'Z')
+                    {
+                        outputMessage += 'a';
+                    }
+                    else
+                    {
+                        int value = (int)Message[i];
+                        value++;
+                        outputMessage += (char)value;
+                    }
 
                 }
-                else if (Message[i] == 'Z')
-                {
-                    outputMessage += 'a';
-                }
-                else
-                {
-                    int value = (int)Message[i];
-                    value++;
-                    outputMessage += (char)value;
-                }
-
             }
             return outputMessage;
         }
         public string ShiftTextLeft(string Message)
         {
             string outputMessage = "";
-            for (int i = 0; i < Message.Length; i++)
+            if (Message.All(Char.IsLetter))
             {
-                if (Message[i] == 'A')
+                for (int i = 0; i < Message.Length; i++)
                 {
-                    outputMessage += 'z';
+                    if (Message[i] == 'A')
+                    {
+                        outputMessage += 'z';
+
+                    }
+                    else if (Message[i] == 'a')
+                    {
+                        outputMessage += 'Z';
+                    }
+                    else
+                    {
+                        int value = (int)Message[i];
+                        value--;
+                        outputMessage += (char)value;
+                    }
 
                 }
-                else if (Message[i] == 'a')
-                {
-                    outputMessage += 'Z';
-                }
-                else
-                {
-                    int value = (int)Message[i];
-                    value--;
-                    outputMessage += (char)value;
-                }
-
             }
             return outputMessage;
         }
@@ -61,6 +67,7 @@ namespace PracaDyplomowa_MichalMoric
             for (int i = 0; i < offset; i++)
             {
                 Message = ShiftTextRight(Message);
+
 
             }
             return Message;

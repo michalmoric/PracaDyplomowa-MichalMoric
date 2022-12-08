@@ -108,6 +108,10 @@ namespace PracaDyplomowa_MichalMoric
                         InstructionLabel.Text = "Liczba wejsciowa m została zaszyfrowana z użyciem następującego wzoru:" + Environment.NewLine;
                         InstructionLabel.Text += "m^e % n" + Environment.NewLine;
                         InstructionLabel.Text += "Zaszyfrowana liczba c jest równa: " + output + Environment.NewLine + Environment.NewLine;
+                        if (message > n)
+                        {
+                            InstructionLabel.Text += "UWAGA:Liczba nie zostala zaszyfrowana poprawnie z racji że jest większa od składnika N";
+                        }
                     }
                     else
                     {
@@ -142,7 +146,7 @@ namespace PracaDyplomowa_MichalMoric
                         int message = Convert.ToInt32(InputBox.Text);
                         BigInteger output = cypher.decryptNumber(message, d, n);
                         OutputBox.Text = output.ToString();
-                        InstructionLabel.Text += "Zaszyfrowana liczba wejsciowa c została odszyfrowana z użyciem następującego wzoru:"+ Environment.NewLine;
+                        InstructionLabel.Text = "Zaszyfrowana liczba wejsciowa c została odszyfrowana z użyciem następującego wzoru:"+ Environment.NewLine;
                         InstructionLabel.Text += "c^d % n" + Environment.NewLine;
                         InstructionLabel.Text += "Odszyfrowana liczba m jest równa: " + Environment.NewLine + output;
                     }
